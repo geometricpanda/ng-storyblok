@@ -1,10 +1,10 @@
 import { inject } from '@angular/core';
 import { ResolveFn } from '@angular/router';
-import { ISbResult } from '@storyblok/js';
+import { ISbStory } from 'storyblok-js-client/src/interfaces';
 import { Storyblok } from '../services/storyblok.service';
 import { NG_STORYBLOK_DEFAULT_PATH } from '../tokens/default-path.token';
 
-export const resolveStory: ResolveFn<ISbResult> = (route) => {
+export const resolveStory: ResolveFn<ISbStory> = (route) => {
     const storyblok = inject(Storyblok);
     const defaultPath = inject(NG_STORYBLOK_DEFAULT_PATH, { optional: true });
 
@@ -12,11 +12,11 @@ export const resolveStory: ResolveFn<ISbResult> = (route) => {
     const { path } = params;
 
     if (path) {
-        return storyblok.get(`cdn/stories/${path}`);
+        return storyblok.getStory(path);
     }
 
     if (defaultPath) {
-        return storyblok.get(`cdn/stories/${defaultPath}`);
+        return storyblok.getStory(defaultPath);
     }
 
     console.error(`ngStoryblok: NO_DEFAULT_PATH_EXEC

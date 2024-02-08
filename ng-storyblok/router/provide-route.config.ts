@@ -6,7 +6,7 @@ export type NgSbRoute = Omit<Route, 'loadComponent' | 'loadChildren' | 'componen
 
 export const ngSbRoute = (route: NgSbRoute): Route => ({
     ...route,
-    loadComponent: () => import('@geometricpanda/ng-storyblok/story'),
+    loadComponent: () => import('@geometricpanda/ng-storyblok/render'),
     resolve: {
         ...route.resolve,
         story: resolveStory,

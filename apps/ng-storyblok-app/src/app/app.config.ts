@@ -1,13 +1,11 @@
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { ApplicationConfig } from '@angular/core';
 import { provideClientHydration } from '@angular/platform-browser';
-import { provideRouter } from '@angular/router';
-// eslint-disable-next-line @nx/enforce-module-boundaries
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 import {
     provideNgStoryblok,
     withAccessToken,
     withApiPlugin,
-    withApiRegion,
     withBloks,
     withCacheConfig,
     withDefaultPath,
@@ -20,15 +18,17 @@ export const appConfig: ApplicationConfig = {
     providers: [
         provideClientHydration(),
         provideHttpClient(withFetch()),
-        provideRouter(appRoutes),
+        provideRouter(appRoutes, withComponentInputBinding()),
         provideNgStoryblok(
             withAccessToken('ng4mrSeUen31b5G1kAu8eQtt'),
             withApiPlugin(),
-            withApiRegion('eu'),
             withCacheConfig({ type: 'none' }),
             withDefaultPath('home'),
             withBloks({
                 [BLOK.PAGE]: () => import('./cms-components/page-blok'),
+                [BLOK.TEASER]: () => import('./cms-components/teaser-blok'),
+                [BLOK.GRID]: () => import('./cms-components/grid-blok'),
+                [BLOK.FEATURE]: () => import('./cms-components/feature-blok'),
             }),
         ),
     ],

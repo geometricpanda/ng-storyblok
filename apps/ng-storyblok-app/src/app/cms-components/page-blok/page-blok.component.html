@@ -1,4 +1,7 @@
-@for (child of blok().body; track child._uid) {
-    <pre>{{ child | json }}</pre>
-    <ng-container [ngsbBlok]="child" />
-}
+<div class="page">
+    <div class="page__container">
+        @for (child of blok().content.body; track child._uid) {
+            <ng-container [storyblokBlok]="child" />
+        }
+    </div>
+</div>

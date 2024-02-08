@@ -1,6 +1,5 @@
-import { SbContentBlok, SbNestedBlok } from '@geometricpanda/ng-storyblok/types';
-import { BLOK } from '../index';
+import { StoryblokContent, StoryblokNested } from '@geometricpanda/ng-storyblok/types';
 
-export interface PageBlok extends SbContentBlok<BLOK.PAGE> {
-    body: Array<SbNestedBlok>;
-}
+export type PageBlok = StoryblokContent<{
+    body: Array<StoryblokNested>;
+}>;
