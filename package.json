@@ -64,16 +64,9 @@
     "tslint-config-prettier": "latest",
     "typescript": "~5.3.2"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "npx --no -- commitlint --edit $1"
-    }
-  },
   "lint-staged": {
-    "*.{js,json,css,scss,less,md,ts,html,component.html}": [
-      "prettier --write",
-      "yarn lint"
+      "*.{js,json,css,scss,less,md,ts,html,component.html}": [
+      "prettier --write"
     ]
   },
   "packageManager": "yarn@4.1.0"
