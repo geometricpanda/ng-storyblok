@@ -1,0 +1,4 @@
+@for (child of blok().body; track child._uid) {
+    <pre>{{ child | json }}</pre>
+    <ng-container [ngsbBlok]="child" />
+}

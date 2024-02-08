@@ -2,7 +2,7 @@
     "name": "ng-storyblok",
     "$schema": "../node_modules/nx/schemas/project-schema.json",
     "sourceRoot": "ng-storyblok/src",
-    "prefix": "geometricpanda",
+    "prefix": "ngsb",
     "tags": [],
     "projectType": "library",
     "targets": {

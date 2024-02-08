@@ -1,1 +1,1 @@
-export * from './lib/ng-storyblok/ng-storyblok.component';
+export const main = true;

@@ -1,6 +1,6 @@
-import { Provider } from '@angular/core';
 import { NG_STORYBLOK_CACHE_CONFIG } from '@geometricpanda/ng-storyblok/tokens';
 import type { ISbCache } from 'storyblok-js-client/src/interfaces';
+import { NgStoryblokCacheFeature, NgStoryblokFeatureKind, createNgSbFeature } from './_features.config';
 
 /**
  * Provides the Storyblok cache configuration.
@@ -15,7 +15,11 @@ import type { ISbCache } from 'storyblok-js-client/src/interfaces';
  * @param config The Storyblok cache configuration.
  * @returns The provider for the Storyblok cache configuration.
  */
-export const withCacheConfig = (config: ISbCache): Provider => ({
-    provide: NG_STORYBLOK_CACHE_CONFIG,
-    useValue: config,
-});
+export function withCacheConfig(config: ISbCache): NgStoryblokCacheFeature {
+    return createNgSbFeature(NgStoryblokFeatureKind.CacheFeature, [
+        {
+            provide: NG_STORYBLOK_CACHE_CONFIG,
+            useValue: config,
+        },
+    ]);
+}

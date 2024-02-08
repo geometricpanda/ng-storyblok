@@ -5,6 +5,7 @@ The purpose of this library is to offer a simple way to integrate Storyblok into
 ## Config
 
 ### tsconfig.json
+
 Update your `tsconfig.json` to include the `dom.iterable` lib.
 
 This is required as `ng-storyblok` uses the `storyblok-js-client`.
