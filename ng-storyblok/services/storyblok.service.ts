@@ -1,9 +1,9 @@
 import { inject, Injectable } from '@angular/core';
+import { ISbResponseData } from '@geometricpanda/ng-storyblok';
 import { NG_STORYBLOK_CLIENT } from '@geometricpanda/ng-storyblok/tokens';
 import { ISbContentMangmntAPI, ISbResult, ISbStoriesParams } from '@storyblok/js';
 import { first, from, Observable } from 'rxjs';
 import { ISbStoryParams } from 'storyblok-js-client/src/interfaces';
-import { ISbResponseData } from '../types/storyblok.interface';
 
 @Injectable({
     providedIn: 'root',

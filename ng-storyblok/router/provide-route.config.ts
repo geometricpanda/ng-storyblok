@@ -1,4 +1,3 @@
-/* eslint-disable @nx/enforce-module-boundaries */
 import { Route } from '@angular/router';
 import { resolveStory } from './resolve-story.guard';
 

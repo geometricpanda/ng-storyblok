@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { StoryblokBlok } from '@geometricpanda/ng-storyblok/types';
+import { StoryblokBlok } from '@geometricpanda/ng-storyblok';
 import { TeaserBlok } from './teaser-blok.interface';
 
 @Component({

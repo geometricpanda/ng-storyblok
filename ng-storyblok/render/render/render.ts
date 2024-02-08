@@ -1,8 +1,8 @@
 import { Type, ViewContainerRef } from '@angular/core';
 import { DefaultExport } from '@angular/router';
+import { StoryblokBlok } from '@geometricpanda/ng-storyblok';
 import { BlokLoaders } from '@geometricpanda/ng-storyblok/tokens';
-import { ISbComponentType } from 'storyblok-js-client/src/interfaces';
-import { StoryblokBlok } from '../../types/storyblok-blok.interface';
+import { ISbComponentType } from 'storyblok-js-client';
 
 const isWrappedDefaultExport = <T>(value: T | DefaultExport<T>): value is DefaultExport<T> =>
     value && typeof value === 'object' && 'default' in value;

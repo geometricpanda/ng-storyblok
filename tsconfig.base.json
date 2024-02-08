@@ -20,8 +20,7 @@
             "@geometricpanda/ng-storyblok/render": ["ng-storyblok/render/index.ts"],
             "@geometricpanda/ng-storyblok/router": ["ng-storyblok/router/index.ts"],
             "@geometricpanda/ng-storyblok/services": ["ng-storyblok/services/index.ts"],
-            "@geometricpanda/ng-storyblok/tokens": ["ng-storyblok/tokens/index.ts"],
-            "@geometricpanda/ng-storyblok/types": ["ng-storyblok/types/index.ts"]
+            "@geometricpanda/ng-storyblok/tokens": ["ng-storyblok/tokens/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]

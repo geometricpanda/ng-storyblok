@@ -1,7 +1,7 @@
 import { Component, inject, input, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { StoryblokBlok } from '@geometricpanda/ng-storyblok';
 import { StoryblokBlokDirective } from '@geometricpanda/ng-storyblok/render';
-import { StoryblokBlok } from '@geometricpanda/ng-storyblok/types';
 import { PageBlok } from './page-blok.interface';
 
 @Component({

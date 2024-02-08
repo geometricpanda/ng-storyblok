@@ -1,4 +1,4 @@
-import { StoryblokNested } from '@geometricpanda/ng-storyblok/types';
+import { StoryblokNested } from '@geometricpanda/ng-storyblok';
 
 export type TeaserBlok = StoryblokNested<{
     headline: string;
