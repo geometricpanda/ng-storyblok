@@ -6,7 +6,8 @@ export interface ISbResponseData {
     link_uuids: string[];
     links: string[];
     rel_uuids: string[];
-    rels: never;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    rels: any;
     story: ISbStoryData;
     stories: Array<ISbStoryData>;
 }
