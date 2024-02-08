@@ -16,8 +16,8 @@
         "baseUrl": ".",
         "paths": {
             "@geometricpanda/ng-storyblok": ["ng-storyblok/src/index.ts"],
-            "@geometricpanda/ng-storyblok/render": ["ng-storyblok/render/index.ts"],
             "@geometricpanda/ng-storyblok/config": ["ng-storyblok/config/index.ts"],
+            "@geometricpanda/ng-storyblok/render": ["ng-storyblok/render/index.ts"],
             "@geometricpanda/ng-storyblok/router": ["ng-storyblok/router/index.ts"],
             "@geometricpanda/ng-storyblok/services": ["ng-storyblok/services/index.ts"],
             "@geometricpanda/ng-storyblok/tokens": ["ng-storyblok/tokens/index.ts"],

@@ -1,4 +1,4 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, inject, input, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { StoryblokBlokDirective } from '@geometricpanda/ng-storyblok/render';
 import { StoryblokBlok } from '@geometricpanda/ng-storyblok/types';
@@ -11,7 +11,7 @@ import { PageBlok } from './page-blok.interface';
     standalone: true,
     imports: [StoryblokBlokDirective],
 })
-export class PageBlokComponent implements StoryblokBlok<PageBlok> {
+export class PageBlokComponent implements StoryblokBlok<PageBlok>, OnInit {
     title = inject(Title);
 
     blok = input.required<PageBlok>();

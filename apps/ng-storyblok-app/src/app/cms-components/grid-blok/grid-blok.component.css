@@ -4,17 +4,16 @@
 }
 
 @media (min-width: 48em) {
-    .grid{
+    .grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (min-width: 64em) {
-    .grid{
+    .grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
 .grid__column {
-
 }
