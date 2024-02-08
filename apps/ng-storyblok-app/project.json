@@ -1,73 +1,70 @@
 {
-  "name": "ng-storyblok-app",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "projectType": "application",
-  "prefix": "geometricpanda",
-  "sourceRoot": "apps/ng-storyblok-app/src",
-  "tags": [],
-  "targets": {
-    "build": {
-      "executor": "@angular-devkit/build-angular:application",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/apps/ng-storyblok-app",
-        "index": "apps/ng-storyblok-app/src/index.html",
-        "browser": "apps/ng-storyblok-app/src/main.ts",
-        "polyfills": ["zone.js"],
-        "tsConfig": "apps/ng-storyblok-app/tsconfig.app.json",
-        "assets": [
-          "apps/ng-storyblok-app/src/favicon.ico",
-          "apps/ng-storyblok-app/src/assets"
-        ],
-        "styles": ["apps/ng-storyblok-app/src/styles.css"],
-        "scripts": [],
-        "server": "apps/ng-storyblok-app/src/main.server.ts",
-        "prerender": true,
-        "ssr": {
-          "entry": "apps/ng-storyblok-app/server.ts"
-        }
-      },
-      "configurations": {
-        "production": {
-          "budgets": [
-            {
-              "type": "initial",
-              "maximumWarning": "500kb",
-              "maximumError": "1mb"
+    "name": "ng-storyblok-app",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "application",
+    "prefix": "app",
+    "sourceRoot": "apps/ng-storyblok-app/src",
+    "tags": [],
+    "targets": {
+        "build": {
+            "executor": "@angular-devkit/build-angular:application",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "outputPath": "dist/apps/ng-storyblok-app",
+                "index": "apps/ng-storyblok-app/src/index.html",
+                "browser": "apps/ng-storyblok-app/src/main.ts",
+                "polyfills": ["zone.js"],
+                "tsConfig": "apps/ng-storyblok-app/tsconfig.app.json",
+                "assets": ["apps/ng-storyblok-app/src/favicon.ico", "apps/ng-storyblok-app/src/assets"],
+                "styles": ["apps/ng-storyblok-app/src/styles.css"],
+                "scripts": [],
+                "server": "apps/ng-storyblok-app/src/main.server.ts",
+                "prerender": true,
+                "ssr": {
+                    "entry": "apps/ng-storyblok-app/server.ts"
+                }
             },
-            {
-              "type": "anyComponentStyle",
-              "maximumWarning": "2kb",
-              "maximumError": "4kb"
+            "configurations": {
+                "production": {
+                    "budgets": [
+                        {
+                            "type": "initial",
+                            "maximumWarning": "500kb",
+                            "maximumError": "1mb"
+                        },
+                        {
+                            "type": "anyComponentStyle",
+                            "maximumWarning": "2kb",
+                            "maximumError": "4kb"
+                        }
+                    ],
+                    "outputHashing": "all"
+                },
+                "development": {
+                    "optimization": false,
+                    "extractLicenses": false,
+                    "sourceMap": true
+                }
+            },
+            "defaultConfiguration": "production"
+        },
+        "serve": {
+            "executor": "@angular-devkit/build-angular:dev-server",
+            "configurations": {
+                "production": {
+                    "buildTarget": "ng-storyblok-app:build:production"
+                },
+                "development": {
+                    "buildTarget": "ng-storyblok-app:build:development"
+                }
+            },
+            "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+            "executor": "@angular-devkit/build-angular:extract-i18n",
+            "options": {
+                "buildTarget": "ng-storyblok-app:build"
             }
-          ],
-          "outputHashing": "all"
-        },
-        "development": {
-          "optimization": false,
-          "extractLicenses": false,
-          "sourceMap": true
         }
-      },
-      "defaultConfiguration": "production"
-    },
-    "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
-      "configurations": {
-        "production": {
-          "buildTarget": "ng-storyblok-app:build:production"
-        },
-        "development": {
-          "buildTarget": "ng-storyblok-app:build:development"
-        }
-      },
-      "defaultConfiguration": "development"
-    },
-    "extract-i18n": {
-      "executor": "@angular-devkit/build-angular:extract-i18n",
-      "options": {
-        "buildTarget": "ng-storyblok-app:build"
-      }
     }
-  }
 }

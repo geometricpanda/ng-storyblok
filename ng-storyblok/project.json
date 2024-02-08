@@ -1,0 +1,26 @@
+{
+    "name": "ng-storyblok",
+    "$schema": "../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "ng-storyblok/src",
+    "prefix": "geometricpanda",
+    "tags": [],
+    "projectType": "library",
+    "targets": {
+        "build": {
+            "executor": "@nx/angular:package",
+            "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+            "options": {
+                "project": "ng-storyblok/ng-package.json"
+            },
+            "configurations": {
+                "production": {
+                    "tsConfig": "ng-storyblok/tsconfig.lib.prod.json"
+                },
+                "development": {
+                    "tsConfig": "ng-storyblok/tsconfig.lib.json"
+                }
+            },
+            "defaultConfiguration": "production"
+        }
+    }
+}

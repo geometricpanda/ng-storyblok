@@ -40,3 +40,13 @@ Thumbs.db
 
 .nx/cache
 .angular
+
+
+# Yarn Files
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

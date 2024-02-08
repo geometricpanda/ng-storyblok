@@ -1,3 +1,81 @@
 {
-  "singleQuote": true
+    "$schema": "https://json.schemastore.org/prettierrc",
+    "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-organize-attributes"],
+    "printWidth": 120,
+    "tabWidth": 4,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "htmlWhitespaceSensitivity": "ignore",
+    "bracketSameLine": false,
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "proseWrap": "always",
+    "endOfLine": "auto",
+    "singleAttributePerLine": true,
+    "overrides": [
+        {
+            "files": ["*.js", "*.ts"],
+            "options": {
+                "parser": "typescript"
+            }
+        },
+        {
+            "files": ["*.md"],
+            "options": {
+                "parser": "markdown"
+            }
+        },
+        {
+            "files": ["*.json", ".prettierrc", ".stylelintrc"],
+            "options": {
+                "parser": "json"
+            }
+        },
+        {
+            "files": ["package.json"],
+            "options": {
+                "parser": "json-stringify",
+                "plugins": ["prettier-plugin-packagejson"]
+            }
+        },
+        {
+            "files": ["*.less"],
+            "options": {
+                "parser": "less"
+            }
+        },
+        {
+            "files": ["*.scss"],
+            "options": {
+                "parser": "scss"
+            }
+        },
+        {
+            "files": ["*.html"],
+            "options": {
+                "parser": "html"
+            }
+        },
+        {
+            "files": ["*.template.html", "*.component.html"],
+            "options": {
+                "parser": "angular"
+            }
+        },
+        {
+            "files": ["*.svg"],
+            "options": {
+                "parser": "xml"
+            }
+        },
+        {
+            "files": ["*.yml", "*.yaml"],
+            "options": {
+                "parser": "yaml",
+                "tabWidth": 2
+            }
+        }
+    ]
 }
