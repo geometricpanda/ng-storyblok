@@ -1,2 +1,1 @@
-npx nx lint
-nx format:write --libs-and-apps
+lint-staged
