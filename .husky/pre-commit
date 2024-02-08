@@ -1,2 +1,2 @@
 npx nx lint
-nx format:write --libs-and-apps --all
+nx format:write --libs-and-apps
