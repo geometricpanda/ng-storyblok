@@ -10,13 +10,34 @@
         "importHelpers": true,
         "target": "es2015",
         "module": "esnext",
-        "lib": ["es2020", "dom"],
+        "lib": [
+            "es2020",
+            "dom",
+            "dom.iterable",
+        ],
         "skipLibCheck": true,
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@geometricpanda/ng-storyblok": ["ng-storyblok/src/index.ts"]
+            "@geometricpanda/ng-storyblok/config": [
+                "ng-storyblok/src/config/index.ts"
+            ],
+            "@geometricpanda/ng-storyblok/tokens": [
+                "ng-storyblok/src/tokens/index.ts"
+            ],
+            "@geometricpanda/ng-storyblok/types": [
+                "ng-storyblok/src/types/index.ts"
+            ],
+            "@geometricpanda/ng-storyblok/services": [
+                "ng-storyblok/src/services/index.ts"
+            ],
+            "@geometricpanda/ng-storyblok": [
+                "ng-storyblok/src/index.ts"
+            ]
         }
     },
-    "exclude": ["node_modules", "tmp"]
+    "exclude": [
+        "node_modules",
+        "tmp"
+    ]
 }

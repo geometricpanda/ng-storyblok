@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { Storyblok } from '@geometricpanda/ng-storyblok/services';
 
 @Component({
     selector: 'app-root',
@@ -9,5 +10,5 @@ import { RouterModule } from '@angular/router';
     styleUrl: './app.component.css',
 })
 export class AppComponent {
-    title = 'ng-storyblok-app';
+    storyblok = inject(Storyblok);
 }
