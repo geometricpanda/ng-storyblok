@@ -19,7 +19,6 @@
                 "styles": ["apps/ng-storyblok-app/src/styles.css"],
                 "scripts": [],
                 "server": "apps/ng-storyblok-app/src/main.server.ts",
-                "prerender": true,
                 "ssr": {
                     "entry": "apps/ng-storyblok-app/server.ts"
                 }
