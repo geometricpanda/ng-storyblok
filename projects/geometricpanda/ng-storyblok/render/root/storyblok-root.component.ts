@@ -1,4 +1,4 @@
-import { AsyncPipe, isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { Component, PLATFORM_ID, computed, effect, inject, input, signal } from '@angular/core';
 import {
     NG_STORYBLOK_BRIDGE,
@@ -13,7 +13,7 @@ import { StoryblokContentDirective } from '../render';
     selector: 'storyblok-root',
     templateUrl: './storyblok-root.component.html',
     standalone: true,
-    imports: [StoryblokContentDirective, AsyncPipe],
+    imports: [StoryblokContentDirective],
 })
 export class StoryblokRootComponent {
     PLATFORM_ID = inject(PLATFORM_ID);
@@ -27,22 +27,14 @@ export class StoryblokRootComponent {
     computedStory = computed<ISbStoryData>(() => {
         const bridgeStory = this.bridgeStory();
         const story = this.story();
-
-        if (bridgeStory) {
-            return bridgeStory;
-        }
-
-        return story.data.story;
+        return bridgeStory || story.data.story;
     });
 
-    onStory = effect(
+    attachBridge = effect(
         () => {
             const story = this.story();
-            const bridge = this.BRIDGE;
-            const platformBrowser = isPlatformBrowser(this.PLATFORM_ID);
-
-            if (platformBrowser && bridge) {
-                useStoryblokBridge(story.data.story.id, (newStory) => this.bridgeStory.set(newStory), {
+            if (isPlatformBrowser(this.PLATFORM_ID) && this.BRIDGE) {
+                useStoryblokBridge(story.data.story.id, this.bridgeStory.set, {
                     resolveRelations: this.RESOLVE_RELATIONS,
                     resolveLinks: this.RESOLVE_LINKS,
                 });
