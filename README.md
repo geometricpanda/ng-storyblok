@@ -41,3 +41,8 @@ then update your `angular.json` (or `project.json`) serve schematic to include:
         "sslKey": "./localhost-key.pem"
     },
 ```
+
+## Flickering
+
+If you're experiencing flickering when using `ng-storyblok`, this is probably because of this
+esbuild issue which will hopefully be resolved soon https://github.com/angular/angular/issues/53191
