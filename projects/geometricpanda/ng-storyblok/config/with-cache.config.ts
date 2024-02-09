@@ -1,13 +1,6 @@
-import {
-    NG_STORYBLOK_CACHE,
-    NG_STORYBLOK_TRANSFER_CACHE,
-} from '@geometricpanda/ng-storyblok/tokens';
+import { NG_STORYBLOK_CACHE, NG_STORYBLOK_TRANSFER_CACHE } from '@geometricpanda/ng-storyblok/tokens';
 import { ISbCache } from 'storyblok-js-client/src/interfaces';
-import {
-    NgStoryblokCacheFeature,
-    NgStoryblokFeatureKind,
-    createNgSbFeature,
-} from './_features.config';
+import { NgStoryblokCacheFeature, NgStoryblokFeatureKind, createNgSbFeature } from './_features.config';
 
 /**
  * Provides the Storyblok cache configuration.

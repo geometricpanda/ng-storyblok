@@ -1,6 +1,8 @@
-import { AsyncPipe } from '@angular/common';
-import { Component, input } from '@angular/core';
-import { ISbStory } from '@storyblok/js';
+import { AsyncPipe, isPlatformBrowser } from '@angular/common';
+import { Component, PLATFORM_ID, computed, effect, inject, input, signal } from '@angular/core';
+import { NG_STORYBLOK_BRIDGE, NG_STORYBLOK_CLIENT } from '@geometricpanda/ng-storyblok/tokens';
+import { ISbStory, useStoryblokBridge } from '@storyblok/js';
+import { ISbStoryData } from 'storyblok-js-client/src/interfaces';
 import { StoryblokContentDirective } from '../render';
 
 @Component({
@@ -10,5 +12,34 @@ import { StoryblokContentDirective } from '../render';
     imports: [StoryblokContentDirective, AsyncPipe],
 })
 export class StoryblokRootComponent {
+    PLATFORM_ID = inject(PLATFORM_ID);
+    BRIDGE = inject(NG_STORYBLOK_BRIDGE, { optional: true });
+    API = inject(NG_STORYBLOK_CLIENT);
+
     story = input.required<ISbStory>();
+    bridgeStory = signal<ISbStoryData | undefined>(undefined);
+
+    computedStory = computed<ISbStoryData>(() => {
+        const bridgeStory = this.bridgeStory();
+        const story = this.story();
+
+        if (bridgeStory) {
+            return bridgeStory;
+        }
+
+        return story.data.story;
+    });
+
+    onStory = effect(
+        () => {
+            const story = this.story();
+            const bridge = this.BRIDGE;
+            const platformBrowser = isPlatformBrowser(this.PLATFORM_ID);
+
+            if (platformBrowser && bridge) {
+                useStoryblokBridge(story.data.story.id, (newStory) => this.bridgeStory.set(newStory));
+            }
+        },
+        { allowSignalWrites: true },
+    );
 }

@@ -1,9 +1,5 @@
 import { NG_STORYBLOK_ACCESS_TOKEN } from '@geometricpanda/ng-storyblok/tokens';
-import {
-    NgStoryblokAccessTokenFeature,
-    NgStoryblokFeatureKind,
-    createNgSbFeature,
-} from './_features.config';
+import { NgStoryblokAccessTokenFeature, NgStoryblokFeatureKind, createNgSbFeature } from './_features.config';
 
 /**
  * Provides the Storyblok access token.

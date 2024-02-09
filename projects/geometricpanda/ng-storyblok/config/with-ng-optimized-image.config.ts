@@ -1,15 +1,11 @@
 import { IMAGE_LOADER, ImageLoaderConfig } from '@angular/common';
-import {
-    NgStoryblokFeatureKind,
-    NgStoryblokNgOptimizedImageFeature,
-    createNgSbFeature,
-} from './_features.config';
+import { NgStoryblokFeatureKind, NgStoryblokNgOptimizedImageFeature, createNgSbFeature } from './_features.config';
 
 export interface NgOptimizedImageConfig {
     quality?: number;
 }
 
-export function withNgOptimisedImage({
+export function withNgOptimizedImage({
     quality = 75,
 }: NgOptimizedImageConfig = {}): NgStoryblokNgOptimizedImageFeature {
     return createNgSbFeature(NgStoryblokFeatureKind.NgOptimizedImageFeature, [

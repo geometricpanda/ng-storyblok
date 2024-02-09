@@ -13,23 +13,23 @@ export const enum NgStoryblokFeatureKind {
     OAuthTokenFeature,
     NgOptimizedImageFeature,
     PreviewFeature,
+    ResolveRelationsFeature,
+    ResolveLinksFeature,
+    BridgeFeature,
 }
 
-export type NgStoryblokAccessTokenFeature =
-    NgStoryblokFeature<NgStoryblokFeatureKind.AccessTokenFeature>;
-export type NgStoryblokApiPluginFeature =
-    NgStoryblokFeature<NgStoryblokFeatureKind.ApiPluginFeature>;
-export type NgStoryblokApiRegionFeature =
-    NgStoryblokFeature<NgStoryblokFeatureKind.ApiRegionFeature>;
+export type NgStoryblokAccessTokenFeature = NgStoryblokFeature<NgStoryblokFeatureKind.AccessTokenFeature>;
+export type NgStoryblokApiPluginFeature = NgStoryblokFeature<NgStoryblokFeatureKind.ApiPluginFeature>;
+export type NgStoryblokApiRegionFeature = NgStoryblokFeature<NgStoryblokFeatureKind.ApiRegionFeature>;
 export type NgStoryblokBloksFeature = NgStoryblokFeature<NgStoryblokFeatureKind.BlokFeature>;
 export type NgStoryblokCacheFeature = NgStoryblokFeature<NgStoryblokFeatureKind.CacheFeature>;
-export type NgStoryblokDefaultPathFeature =
-    NgStoryblokFeature<NgStoryblokFeatureKind.DefaultPathFeature>;
-export type NgStoryblokOAuthTokenFeature =
-    NgStoryblokFeature<NgStoryblokFeatureKind.OAuthTokenFeature>;
-export type NgStoryblokNgOptimizedImageFeature =
-    NgStoryblokFeature<NgStoryblokFeatureKind.NgOptimizedImageFeature>;
+export type NgStoryblokDefaultPathFeature = NgStoryblokFeature<NgStoryblokFeatureKind.DefaultPathFeature>;
+export type NgStoryblokOAuthTokenFeature = NgStoryblokFeature<NgStoryblokFeatureKind.OAuthTokenFeature>;
+export type NgStoryblokNgOptimizedImageFeature = NgStoryblokFeature<NgStoryblokFeatureKind.NgOptimizedImageFeature>;
 export type NgStoryblokPreviewFeature = NgStoryblokFeature<NgStoryblokFeatureKind.PreviewFeature>;
+export type NgStoryblokResolveRelationsFeature = NgStoryblokFeature<NgStoryblokFeatureKind.ResolveRelationsFeature>;
+export type NgStoryblokResolveLinksFeature = NgStoryblokFeature<NgStoryblokFeatureKind.ResolveLinksFeature>;
+export type NgStoryblokBridgeFeature = NgStoryblokFeature<NgStoryblokFeatureKind.BridgeFeature>;
 
 export interface NgStoryblokFeature<FeatureKind extends NgStoryblokFeatureKind> {
     ɵkind: FeatureKind;
@@ -55,4 +55,7 @@ export type NgStoryblokFeatures =
     | NgStoryblokDefaultPathFeature
     | NgStoryblokOAuthTokenFeature
     | NgStoryblokNgOptimizedImageFeature
-    | NgStoryblokPreviewFeature;
+    | NgStoryblokPreviewFeature
+    | NgStoryblokResolveRelationsFeature
+    | NgStoryblokResolveLinksFeature
+    | NgStoryblokBridgeFeature;

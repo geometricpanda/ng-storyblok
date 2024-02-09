@@ -1,15 +1,7 @@
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-    NG_STORYBLOK_ACCESS_TOKEN,
-    NG_STORYBLOK_PREVIEW,
-    StoryblokPreview,
-} from '@geometricpanda/ng-storyblok/tokens';
-import {
-    NgStoryblokFeatureKind,
-    NgStoryblokPreviewFeature,
-    createNgSbFeature,
-} from './_features.config';
+import { NG_STORYBLOK_ACCESS_TOKEN, NG_STORYBLOK_PREVIEW, StoryblokPreview } from '@geometricpanda/ng-storyblok/tokens';
+import { NgStoryblokFeatureKind, NgStoryblokPreviewFeature, createNgSbFeature } from './_features.config';
 
 export interface ValidateStoryblokPreview {
     spaceId: string;

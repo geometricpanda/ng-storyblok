@@ -1,9 +1,6 @@
 import { HttpInterceptorFn, HttpResponse } from '@angular/common/http';
 import { TransferState, inject, makeStateKey } from '@angular/core';
-import {
-    NG_STORYBLOK_CLIENT,
-    NG_STORYBLOK_TRANSFER_CACHE,
-} from '@geometricpanda/ng-storyblok/tokens';
+import { NG_STORYBLOK_CLIENT, NG_STORYBLOK_TRANSFER_CACHE } from '@geometricpanda/ng-storyblok/tokens';
 import { from, map, tap } from 'rxjs';
 import { ISbResult, ISbStories, ISbStory } from 'storyblok-js-client';
 import {
@@ -79,15 +76,11 @@ export const storyblokInterceptor: HttpInterceptorFn = (req, next) => {
     }
 
     if (postCtx) {
-        return from(storyblok.post(req.url, postCtx)).pipe(
-            map((story) => new HttpResponse({ body: story })),
-        );
+        return from(storyblok.post(req.url, postCtx)).pipe(map((story) => new HttpResponse({ body: story })));
     }
 
     if (deleteCtx) {
-        return from(storyblok.delete(req.url, deleteCtx)).pipe(
-            map((story) => new HttpResponse({ body: story })),
-        );
+        return from(storyblok.delete(req.url, deleteCtx)).pipe(map((story) => new HttpResponse({ body: story })));
     }
 
     return next(req);

@@ -1,7 +1,6 @@
 # NG Storyblok
 
-The purpose of this library is to offer a simple way to integrate Storyblok into your Angular
-application.
+The purpose of this library is to offer a simple way to integrate Storyblok into your Angular application.
 
 ## Config
 
@@ -28,8 +27,7 @@ This is required as `ng-storyblok` uses the `storyblok-js-client`.
 
 ## Using Preview on localhost
 
-You'll need to create a localhost SSL key: see
-https://www.storyblok.com/faq/setup-dev-server-https-proxy
+You'll need to create a localhost SSL key: see https://www.storyblok.com/faq/setup-dev-server-https-proxy
 
 then update your `angular.json` (or `project.json`) serve schematic to include:
 

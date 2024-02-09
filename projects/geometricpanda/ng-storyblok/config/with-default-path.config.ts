@@ -1,9 +1,5 @@
 import { NG_STORYBLOK_DEFAULT_PATH } from '@geometricpanda/ng-storyblok/tokens';
-import {
-    NgStoryblokDefaultPathFeature,
-    NgStoryblokFeatureKind,
-    createNgSbFeature,
-} from './_features.config';
+import { NgStoryblokDefaultPathFeature, NgStoryblokFeatureKind, createNgSbFeature } from './_features.config';
 
 export function withDefaultPath(path: string): NgStoryblokDefaultPathFeature {
     return createNgSbFeature(NgStoryblokFeatureKind.DefaultPathFeature, [

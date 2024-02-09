@@ -5,6 +5,8 @@ import {
     NG_STORYBLOK_DEFAULT_PATH,
     NG_STORYBLOK_LOADERS,
     NG_STORYBLOK_PREVIEW,
+    NG_STORYBLOK_RESOLVE_LINKS,
+    NG_STORYBLOK_RESOLVE_RELATIONS,
 } from '@geometricpanda/ng-storyblok/tokens';
 import { firstValueFrom } from 'rxjs';
 
@@ -34,12 +36,20 @@ export const preloadComponentsGuard: CanActivateFn = async (route) => {
     const blockLoaders = inject(NG_STORYBLOK_LOADERS);
     const defaultPath = inject(NG_STORYBLOK_DEFAULT_PATH);
     const preview = inject(NG_STORYBLOK_PREVIEW, { optional: true });
+    const resolveLinks = inject(NG_STORYBLOK_RESOLVE_LINKS, { optional: true }) ?? undefined;
+    const resolveRelations = inject(NG_STORYBLOK_RESOLVE_RELATIONS, { optional: true }) ?? undefined;
 
     const slug = route.url.map(({ path }) => path).join('/') || defaultPath;
 
     if (slug) {
         const previewMode = await preview?.preview();
-        const req = storyblok.getStory(slug, previewMode);
+
+        const req = storyblok.getStory(slug, {
+            ...previewMode,
+            resolve_links: resolveLinks,
+            resolve_relations: resolveRelations,
+        });
+
         const storyData = (await firstValueFrom(req))!;
 
         const { data } = storyData;

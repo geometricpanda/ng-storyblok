@@ -1,6 +1,8 @@
 import { ComponentRef, Directive, effect, inject, input, ViewContainerRef } from '@angular/core';
 import { StoryblokBlok } from '@geometricpanda/ng-storyblok';
-import { NG_STORYBLOK_LOADERS } from '@geometricpanda/ng-storyblok/tokens';
+import { NG_STORYBLOK_BRIDGE, NG_STORYBLOK_LOADERS } from '@geometricpanda/ng-storyblok/tokens';
+import { storyblokEditable } from '@storyblok/js';
+import { SbBlokData } from '@storyblok/js/dist/types/types';
 import { ISbComponentType } from 'storyblok-js-client/src/interfaces';
 import { loadComponentChunk } from '../render';
 
@@ -10,6 +12,7 @@ import { loadComponentChunk } from '../render';
 })
 export class StoryblokBlokDirective {
     loader = inject(NG_STORYBLOK_LOADERS);
+    bridge = inject(NG_STORYBLOK_BRIDGE, { optional: true });
     viewContainerRef = inject(ViewContainerRef);
     previousInstance?: ComponentRef<StoryblokBlok>;
 
@@ -28,5 +31,12 @@ export class StoryblokBlokDirective {
 
         this.previousInstance?.destroy();
         this.previousInstance = instance;
+
+        if (this.bridge) {
+            const options = storyblokEditable(<SbBlokData>blok);
+            instance.location.nativeElement.setAttribute('data-blok-c', options['data-blok-c']);
+            instance.location.nativeElement.setAttribute('data-blok-uid', options['data-blok-uid']);
+            instance.location.nativeElement.classList.add('storyblok__outline');
+        }
     });
 }

@@ -1,9 +1,5 @@
 import { HttpContextToken } from '@angular/common/http';
-import {
-    ISbContentMangmntAPI,
-    ISbStoriesParams,
-    ISbStoryParams,
-} from 'storyblok-js-client/src/interfaces';
+import { ISbContentMangmntAPI, ISbStoriesParams, ISbStoryParams } from 'storyblok-js-client/src/interfaces';
 
 const noop = () => null;
 
