@@ -7,7 +7,7 @@ export interface ISbImage extends ISbComponentType<string> {
     focus: string;
     title: string;
     source: string;
-    filename: string;
+    filename?: string;
     copyright: string;
     fieldtype: string;
     meta_data: object;
