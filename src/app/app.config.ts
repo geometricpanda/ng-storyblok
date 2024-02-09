@@ -1,7 +1,11 @@
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { ApplicationConfig } from '@angular/core';
 import { provideClientHydration } from '@angular/platform-browser';
-import { provideRouter, withComponentInputBinding } from '@angular/router';
+import {
+    provideRouter,
+    withComponentInputBinding,
+    withEnabledBlockingInitialNavigation,
+} from '@angular/router';
 import {
     provideNgStoryblok,
     withAccessToken,
@@ -19,7 +23,11 @@ export const appConfig: ApplicationConfig = {
     providers: [
         provideClientHydration(),
         provideHttpClient(withFetch()),
-        provideRouter(appRoutes, withComponentInputBinding()),
+        provideRouter(
+            appRoutes,
+            withComponentInputBinding(),
+            withEnabledBlockingInitialNavigation(),
+        ),
         provideNgStoryblok(
             withAccessToken('ng4mrSeUen31b5G1kAu8eQtt'),
             withDefaultPath('home'),

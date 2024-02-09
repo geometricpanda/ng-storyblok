@@ -23,9 +23,9 @@ export const resolveStory: ResolveFn<ISbStory> = async (route) => {
 
     console.error(`ngStoryblok: RESOLVE_STORY_NO_DEFAULT_PATH_EXEC
 
-    ngStoryblok has attempted to resolve a story without a path, however no default path has been provided.
-    Please provide ngStoryblok with "withDefaultPath()" or verify your route configuration.
-    `);
+ngStoryblok has attempted to resolve a story without a path, however no default path has been provided.
+Please provide ngStoryblok with "withDefaultPath()" or verify your route configuration.
+`);
 
     throw new Error('ngStoryblok: RESOLVE_STORY_NO_DEFAULT_PATH_EXEC');
 };
