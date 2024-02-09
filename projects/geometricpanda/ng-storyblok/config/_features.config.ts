@@ -11,6 +11,7 @@ export const enum NgStoryblokFeatureKind {
     CacheFeature,
     DefaultPathFeature,
     OAuthTokenFeature,
+    NgOptimizedImageFeature,
 }
 
 export type NgStoryblokAccessTokenFeature = NgStoryblokFeature<NgStoryblokFeatureKind.AccessTokenFeature>;
@@ -20,6 +21,7 @@ export type NgStoryblokBloksFeature = NgStoryblokFeature<NgStoryblokFeatureKind.
 export type NgStoryblokCacheFeature = NgStoryblokFeature<NgStoryblokFeatureKind.CacheFeature>;
 export type NgStoryblokDefaultPathFeature = NgStoryblokFeature<NgStoryblokFeatureKind.DefaultPathFeature>;
 export type NgStoryblokOAuthTokenFeature = NgStoryblokFeature<NgStoryblokFeatureKind.OAuthTokenFeature>;
+export type NgStoryblokNgOptimizedImageFeature = NgStoryblokFeature<NgStoryblokFeatureKind.NgOptimizedImageFeature>;
 
 export interface NgStoryblokFeature<FeatureKind extends NgStoryblokFeatureKind> {
     ɵkind: FeatureKind;
@@ -43,4 +45,5 @@ export type NgStoryblokFeatures =
     | NgStoryblokBloksFeature
     | NgStoryblokCacheFeature
     | NgStoryblokDefaultPathFeature
-    | NgStoryblokOAuthTokenFeature;
+    | NgStoryblokOAuthTokenFeature
+    | NgStoryblokNgOptimizedImageFeature;

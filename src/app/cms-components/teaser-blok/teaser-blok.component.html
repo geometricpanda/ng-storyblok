@@ -1,3 +1,15 @@
 <div class="teaser">
     <h1 class="teaser__title">{{ blok().headline }}</h1>
+    @if (blok().image) {
+        <div class="teaser__image">
+            <img
+                class="teaser__img"
+                [ngSrc]="blok().image!.filename"
+                [alt]="blok().image!.alt"
+                [width]="blok().image!.filename | storyblokImgWidth"
+                [height]="blok().image!.filename | storyblokImgHeight"
+                priority
+            />
+        </div>
+    }
 </div>

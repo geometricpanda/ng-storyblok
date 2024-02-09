@@ -16,7 +16,8 @@
             "@geometricpanda/ng-storyblok/render": ["./projects/geometricpanda/ng-storyblok/render/index.ts"],
             "@geometricpanda/ng-storyblok/router": ["./projects/geometricpanda/ng-storyblok/router/index.ts"],
             "@geometricpanda/ng-storyblok/services": ["./projects/geometricpanda/ng-storyblok/services/index.ts"],
-            "@geometricpanda/ng-storyblok/tokens": ["./projects/geometricpanda/ng-storyblok/tokens/index.ts"]
+            "@geometricpanda/ng-storyblok/tokens": ["./projects/geometricpanda/ng-storyblok/tokens/index.ts"],
+            "@geometricpanda/ng-storyblok/pipes": ["./projects/geometricpanda/ng-storyblok/pipes/index.ts"]
         },
         "esModuleInterop": true,
         "sourceMap": true,

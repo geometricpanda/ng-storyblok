@@ -1,5 +1,7 @@
+import { NgOptimizedImage } from '@angular/common';
 import { Component, input } from '@angular/core';
 import { StoryblokBlok } from '@geometricpanda/ng-storyblok';
+import { StoryblokImgHeightPipe, StoryblokImgWidthPipe } from '@geometricpanda/ng-storyblok/pipes';
 import { TeaserBlok } from './teaser-blok.interface';
 
 @Component({
@@ -7,6 +9,7 @@ import { TeaserBlok } from './teaser-blok.interface';
     templateUrl: './teaser-blok.component.html',
     styleUrl: './teaser-blok.component.css',
     standalone: true,
+    imports: [NgOptimizedImage, StoryblokImgWidthPipe, StoryblokImgHeightPipe],
 })
 export class TeaserBlokComponent implements StoryblokBlok<TeaserBlok> {
     blok = input.required<TeaserBlok>();

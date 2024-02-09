@@ -4,3 +4,13 @@
 .teaser__title {
     text-align: center;
 }
+
+.teaser__image {
+    max-width: 300px;
+    margin: auto;
+}
+
+.teaser__img {
+    max-width: 100%;
+    height: auto;
+}
