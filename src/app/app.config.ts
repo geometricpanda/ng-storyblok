@@ -7,9 +7,10 @@ import {
     withAccessToken,
     withApiPlugin,
     withBloks,
-    withCacheConfig,
+    withCache,
     withDefaultPath,
     withNgOptimisedImage,
+    withPreview,
 } from '@geometricpanda/ng-storyblok/config';
 
 import { appRoutes } from './app.routes';
@@ -23,9 +24,10 @@ export const appConfig: ApplicationConfig = {
         provideNgStoryblok(
             withAccessToken('ng4mrSeUen31b5G1kAu8eQtt'),
             withApiPlugin(),
-            withCacheConfig({ type: 'none' }),
+            withCache(),
             withDefaultPath('home'),
             withNgOptimisedImage(),
+            withPreview(),
             withBloks({
                 [BLOK.PAGE]: () => import('./cms-components/page-blok'),
                 [BLOK.TEASER]: () => import('./cms-components/teaser-blok'),

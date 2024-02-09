@@ -53,6 +53,11 @@
                 },
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "ssl": true,
+                        "sslCert": "./localhost.pem",
+                        "sslKey": "./localhost-key.pem"
+                    },
                     "configurations": {
                         "production": {
                             "buildTarget": "ng-storyblok-app:build:production"

@@ -1,5 +1,9 @@
 import { NG_STORYBLOK_API_REGION } from '@geometricpanda/ng-storyblok/tokens';
-import { NgStoryblokApiRegionFeature, NgStoryblokFeatureKind, createNgSbFeature } from './_features.config';
+import {
+    NgStoryblokApiRegionFeature,
+    NgStoryblokFeatureKind,
+    createNgSbFeature,
+} from './_features.config';
 
 /**
  * Provides the Storyblok API region.

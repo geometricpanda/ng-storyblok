@@ -7,3 +7,4 @@ export * from './default-path.config';
 export * from './ng-optimised-image.config';
 export * from './ng-storyblok.config';
 export * from './oauth-token.config';
+export * from './with-preview.config';

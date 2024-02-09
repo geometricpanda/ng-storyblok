@@ -1,5 +1,9 @@
 import { NG_STORYBLOK_OAUTH_TOKEN } from '@geometricpanda/ng-storyblok/tokens';
-import { createNgSbFeature, NgStoryblokFeatureKind, NgStoryblokOAuthTokenFeature } from './_features.config';
+import {
+    createNgSbFeature,
+    NgStoryblokFeatureKind,
+    NgStoryblokOAuthTokenFeature,
+} from './_features.config';
 
 /**
  * Provides the Storyblok OAuth token.

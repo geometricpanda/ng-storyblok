@@ -1,23 +1,26 @@
 # NgStoryblok
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.0.
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version
+17.1.0.
 
 ## Code scaffolding
 
-Run `ng generate component component-name --project ng-storyblok` to generate a new component. You can also use
+Run `ng generate component component-name --project ng-storyblok` to generate a new component. You
+can also use
 `ng generate directive|pipe|service|class|guard|interface|enum|module --project ng-storyblok`.
 
-> Note: Don't forget to add `--project ng-storyblok` or else it will be added to the default project in your
-> `angular.json` file.
+> Note: Don't forget to add `--project ng-storyblok` or else it will be added to the default project
+> in your `angular.json` file.
 
 ## Build
 
-Run `ng build ng-storyblok` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `ng build ng-storyblok` to build the project. The build artifacts will be stored in the `dist/`
+directory.
 
 ## Publishing
 
-After building your library with `ng build ng-storyblok`, go to the dist folder `cd dist/ng-storyblok` and run
-`npm publish`.
+After building your library with `ng build ng-storyblok`, go to the dist folder
+`cd dist/ng-storyblok` and run `npm publish`.
 
 ## Running unit tests
 
