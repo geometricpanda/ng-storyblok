@@ -1,4 +1,4 @@
-import { BlokLoaders, NG_STORYBLOK_BLOKS } from '@geometricpanda/ng-storyblok/tokens';
+import { BlokLoaders, NG_STORYBLOK_LOADERS } from '@geometricpanda/ng-storyblok/tokens';
 import {
     NgStoryblokBloksFeature,
     NgStoryblokFeatureKind,
@@ -8,7 +8,7 @@ import {
 export function withBloks(bloks: BlokLoaders): NgStoryblokBloksFeature {
     return createNgSbFeature(NgStoryblokFeatureKind.BlokFeature, [
         {
-            provide: NG_STORYBLOK_BLOKS,
+            provide: NG_STORYBLOK_LOADERS,
             useValue: bloks,
         },
     ]);

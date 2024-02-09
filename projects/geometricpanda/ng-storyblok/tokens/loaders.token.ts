@@ -10,7 +10,8 @@ export type BlokType =
 export type BlokLoader = () => BlokType;
 
 export type BlokLoaders = Record<string, BlokLoader>;
+
 /**
  * Injection token for blok loaders
  */
-export const NG_STORYBLOK_BLOKS = new InjectionToken<BlokLoaders>('NG_STORYBLOK_BLOKS');
+export const NG_STORYBLOK_LOADERS = new InjectionToken<BlokLoaders>('NG_STORYBLOK_LPOADERS');

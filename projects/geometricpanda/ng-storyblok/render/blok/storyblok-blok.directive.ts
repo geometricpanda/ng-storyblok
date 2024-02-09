@@ -1,5 +1,5 @@
 import { Directive, effect, inject, input, ViewContainerRef } from '@angular/core';
-import { NG_STORYBLOK_BLOKS } from '@geometricpanda/ng-storyblok/tokens';
+import { NG_STORYBLOK_LOADERS } from '@geometricpanda/ng-storyblok/tokens';
 import { ISbComponentType } from 'storyblok-js-client/src/interfaces';
 import { render } from '../render';
 
@@ -8,7 +8,7 @@ import { render } from '../render';
     standalone: true,
 })
 export class StoryblokBlokDirective {
-    loader = inject(NG_STORYBLOK_BLOKS);
+    loader = inject(NG_STORYBLOK_LOADERS);
     viewContainerRef = inject(ViewContainerRef);
 
     blok = input.required<ISbComponentType<string>>({ alias: 'storyblokBlok' });

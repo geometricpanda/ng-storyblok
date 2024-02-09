@@ -10,9 +10,9 @@ import { firstValueFrom } from 'rxjs';
 export const matchStoryblokRoute: CanMatchFn = async (route, segments) => {
     const storyblok = inject(Storyblok);
     const defaultPath = inject(NG_STORYBLOK_DEFAULT_PATH, { optional: true });
-    const preview = inject(NG_STORYBLOK_PREVIEW, { optional: true });
+    const preview = inject(NG_STORYBLOK_PREVIEW);
 
-    const slug = segments.length ? segments.map((segment) => segment.path).join('/') : defaultPath;
+    const slug = segments.map((segment) => segment.path).join('/') || defaultPath;
 
     if (slug) {
         const previewMode = await preview?.preview();
