@@ -1,13 +1,21 @@
-import { Component, input } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ISbStory } from '@storyblok/js';
-import { StoryblokContentDirective } from '../render';
+import { map } from 'rxjs';
+import { StoryblokBlokDirective, StoryblokContentDirective } from '../render';
 
 @Component({
     selector: 'storyblok-root',
     templateUrl: './storyblok-root.component.html',
     standalone: true,
-    imports: [StoryblokContentDirective],
+    imports: [StoryblokContentDirective, StoryblokBlokDirective, AsyncPipe],
 })
 export class StoryblokRootComponent {
-    story = input.required<ISbStory>();
+    #activatedRoute = inject(ActivatedRoute);
+    #data = this.#activatedRoute.data;
+
+    story = this.#data
+        .pipe(map((data) => data['story'] as ISbStory))
+        .pipe(map((story: ISbStory) => story.data.story));
 }

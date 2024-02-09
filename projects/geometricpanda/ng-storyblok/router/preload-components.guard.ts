@@ -56,7 +56,7 @@ export const preloadComponentsGuard: CanActivateFn = async (route) => {
 No loader found for blok: ${component}`);
             }
 
-            return Promise.resolve(loader());
+            return loader();
         });
 
         await Promise.all(loaders);
