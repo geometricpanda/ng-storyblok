@@ -1,6 +1,10 @@
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import { ApplicationConfig, ɵprovideZonelessChangeDetection } from '@angular/core';
-import { provideRouter, withEnabledBlockingInitialNavigation } from '@angular/router';
+import { ApplicationConfig } from '@angular/core';
+import {
+    provideRouter,
+    withComponentInputBinding,
+    withEnabledBlockingInitialNavigation,
+} from '@angular/router';
 import {
     provideNgStoryblok,
     withAccessToken,
@@ -16,9 +20,12 @@ import { BLOK } from './cms-components';
 
 export const appConfig: ApplicationConfig = {
     providers: [
-        ɵprovideZonelessChangeDetection(),
         provideHttpClient(withFetch()),
-        provideRouter(appRoutes, withEnabledBlockingInitialNavigation()),
+        provideRouter(
+            appRoutes,
+            withEnabledBlockingInitialNavigation(),
+            withComponentInputBinding(),
+        ),
         provideNgStoryblok(
             withAccessToken('ng4mrSeUen31b5G1kAu8eQtt'),
             withDefaultPath('home'),
