@@ -1,4 +1,7 @@
-import { NG_STORYBLOK_CACHE } from '@geometricpanda/ng-storyblok/tokens';
+import {
+    NG_STORYBLOK_CACHE,
+    NG_STORYBLOK_TRANSFER_CACHE,
+} from '@geometricpanda/ng-storyblok/tokens';
 import { ISbCache } from 'storyblok-js-client/src/interfaces';
 import {
     NgStoryblokCacheFeature,
@@ -23,11 +26,13 @@ export function withCache(): NgStoryblokCacheFeature {
     return createNgSbFeature(NgStoryblokFeatureKind.CacheFeature, [
         {
             provide: NG_STORYBLOK_CACHE,
-            useFactory: (): ISbCache => {
-                return {
-                    type: 'memory',
-                };
-            },
+            useValue: {
+                type: 'none',
+            } satisfies ISbCache,
+        },
+        {
+            provide: NG_STORYBLOK_TRANSFER_CACHE,
+            useValue: true,
         },
     ]);
 }

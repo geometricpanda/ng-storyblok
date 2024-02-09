@@ -2,6 +2,7 @@ import { FactoryProvider, inject, isDevMode } from '@angular/core';
 import {
     NG_STORYBLOK_ACCESS_TOKEN,
     NG_STORYBLOK_API_REGION,
+    NG_STORYBLOK_CACHE,
     NG_STORYBLOK_CLIENT,
     NG_STORYBLOK_DEFAULT_PATH,
     NG_STORYBLOK_OAUTH_TOKEN,
@@ -20,6 +21,7 @@ export const StoryblokClientProvider: FactoryProvider = {
         const ACCESS_TOKEN = inject(NG_STORYBLOK_ACCESS_TOKEN, { optional: true });
         const OAUTH_TOKEN = inject(NG_STORYBLOK_OAUTH_TOKEN, { optional: true });
         const API_REGION = inject(NG_STORYBLOK_API_REGION, { optional: true });
+        const CACHE = inject(NG_STORYBLOK_CACHE, { optional: true });
 
         if (!ACCESS_TOKEN && !OAUTH_TOKEN) {
             throw new Error(`ngStoryblok - NO_ACCESS_TOKEN
@@ -40,6 +42,7 @@ If this is intentional please provide ngStoryblok with "withoutDefaultPath()"`);
             accessToken: ACCESS_TOKEN ?? undefined,
             oauthToken: OAUTH_TOKEN ?? undefined,
             region: API_REGION ?? undefined,
+            cache: CACHE ?? undefined,
         });
 
         if (!storyblokApi) {

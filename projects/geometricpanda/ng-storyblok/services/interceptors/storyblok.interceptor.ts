@@ -1,9 +1,11 @@
 import { HttpInterceptorFn, HttpResponse } from '@angular/common/http';
 import { TransferState, inject, makeStateKey } from '@angular/core';
-import { NG_STORYBLOK_CACHE, NG_STORYBLOK_CLIENT } from '@geometricpanda/ng-storyblok/tokens';
-import { ISbStory } from '@storyblok/js';
+import {
+    NG_STORYBLOK_CLIENT,
+    NG_STORYBLOK_TRANSFER_CACHE,
+} from '@geometricpanda/ng-storyblok/tokens';
 import { from, map, tap } from 'rxjs';
-import { ISbResult, ISbStories } from 'storyblok-js-client/src/interfaces';
+import { ISbResult, ISbStories, ISbStory } from 'storyblok-js-client';
 import {
     DELETE_CONTEXT,
     GET_ALL_CONTEXT,
@@ -16,7 +18,7 @@ import {
 export const storyblokInterceptor: HttpInterceptorFn = (req, next) => {
     const storyblok = inject(NG_STORYBLOK_CLIENT);
     const transferState = inject(TransferState);
-    const useCache = inject(NG_STORYBLOK_CACHE, { optional: true }) ?? false;
+    const useCache = inject(NG_STORYBLOK_TRANSFER_CACHE, { optional: true });
     const getCtx = req.context.get(GET_CONTEXT);
     const getStoryCtx = req.context.get(GET_STORY_CONTEXT);
     const getStoriesCtx = req.context.get(GET_STORIES_CONTEXT);
