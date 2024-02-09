@@ -1,6 +1,6 @@
-import { Component, effect, input, signal } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { ISbStory } from '@storyblok/js';
-import { StoryblokContentDirective } from '../content';
+import { StoryblokContentDirective } from '../render';
 
 @Component({
     selector: 'storyblok-root',
@@ -10,13 +10,4 @@ import { StoryblokContentDirective } from '../content';
 })
 export class StoryblokRootComponent {
     story = input.required<ISbStory>();
-    storyData = signal<undefined | ISbStory>(undefined);
-
-    sync = effect(
-        () => {
-            const story = this.story();
-            this.storyData.set(story);
-        },
-        { allowSignalWrites: true },
-    );
 }

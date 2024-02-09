@@ -1,7 +1,8 @@
-import { Directive, effect, inject, input, ViewContainerRef } from '@angular/core';
+import { ComponentRef, Directive, effect, inject, input, ViewContainerRef } from '@angular/core';
+import { StoryblokBlok } from '@geometricpanda/ng-storyblok';
 import { NG_STORYBLOK_LOADERS } from '@geometricpanda/ng-storyblok/tokens';
 import { ISbStoryData } from 'storyblok-js-client/src/interfaces';
-import { render } from '../render';
+import { loadComponentChunk } from '../render';
 
 @Directive({
     selector: 'ng-container[storyblokContent]',
@@ -10,17 +11,22 @@ import { render } from '../render';
 export class StoryblokContentDirective {
     loader = inject(NG_STORYBLOK_LOADERS);
     viewContainerRef = inject(ViewContainerRef);
+    previousInstance?: ComponentRef<StoryblokBlok>;
 
     blok = input.required<ISbStoryData>({ alias: 'storyblokContent' });
 
     render = effect(async () => {
         const blok = this.blok();
-        const instance = await render({
-            viewContainerRef: this.viewContainerRef,
+
+        const Component = await loadComponentChunk({
             loaders: this.loader,
             blok: blok.content,
         });
 
+        const instance = this.viewContainerRef.createComponent(Component);
         instance.setInput('blok', blok);
+
+        this.previousInstance?.destroy();
+        this.previousInstance = instance;
     });
 }
