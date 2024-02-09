@@ -15,11 +15,13 @@ import {
     withPreview,
 } from '@geometricpanda/ng-storyblok/config';
 
+import { provideClientHydration } from '@angular/platform-browser';
 import { appRoutes } from './app.routes';
 import { BLOK } from './cms-components';
 
 export const appConfig: ApplicationConfig = {
     providers: [
+        provideClientHydration(),
         provideHttpClient(withFetch()),
         provideRouter(
             appRoutes,
