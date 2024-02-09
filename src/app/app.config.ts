@@ -5,7 +5,6 @@ import { provideRouter, withComponentInputBinding } from '@angular/router';
 import {
     provideNgStoryblok,
     withAccessToken,
-    withApiPlugin,
     withBloks,
     withCache,
     withDefaultPath,
@@ -23,11 +22,10 @@ export const appConfig: ApplicationConfig = {
         provideRouter(appRoutes, withComponentInputBinding()),
         provideNgStoryblok(
             withAccessToken('ng4mrSeUen31b5G1kAu8eQtt'),
-            withApiPlugin(),
-            withCache(),
             withDefaultPath('home'),
-            withNgOptimisedImage(),
             withPreview(),
+            withCache(),
+            withNgOptimisedImage(),
             withBloks({
                 [BLOK.PAGE]: () => import('./cms-components/page-blok'),
                 [BLOK.TEASER]: () => import('./cms-components/teaser-blok'),

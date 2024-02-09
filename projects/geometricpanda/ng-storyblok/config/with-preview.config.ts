@@ -11,51 +11,29 @@ import {
     createNgSbFeature,
 } from './_features.config';
 
-const isValidToken = async (
-    spaceId: string,
-    previewToken: string,
-    timestamp: string,
-    token: string,
-): Promise<boolean> => {
+export interface ValidateStoryblokPreview {
+    spaceId: string;
+    accessToken: string;
+    timestamp: string;
+    token: string;
+}
+
+const validateStoryblokPreview = async ({
+    spaceId,
+    accessToken,
+    timestamp,
+    token,
+}: ValidateStoryblokPreview): Promise<void> => {
     const enc = new TextEncoder();
-    const validationString = [spaceId, previewToken, timestamp].join(':');
+    const validationString = [spaceId, accessToken, timestamp].join(':');
     const hash = await crypto.subtle.digest('SHA-1', enc.encode(validationString));
     const computed = Array.from(new Uint8Array(hash))
         .map((v) => v.toString(16).padStart(2, '0'))
         .join('');
 
-    return token === computed;
-};
-
-const storyblokPreview: StoryblokPreview['preview'] = async () => {
-    const router = inject(Router);
-    const accessToken = inject(NG_STORYBLOK_ACCESS_TOKEN);
-    const navigation = router.getCurrentNavigation();
-
-    if (!navigation) {
-        throw new Error('ngStoryblok: NO_ROUTER_NAVIGATION');
+    if (token !== computed) {
+        throw new Error('ngStoryblok: INVALID_PREVIEW_TOKEN');
     }
-
-    const { queryParams } = navigation.extractedUrl;
-    const searchParams = new Map(Object.entries(queryParams));
-
-    const release = searchParams.get('_storyblok_release');
-    const spaceId = searchParams.get('_storyblok_tk[space_id]');
-    const timestamp = searchParams.get('_storyblok_tk[timestamp]');
-    const token = searchParams.get('_storyblok_tk[token]');
-
-    if (!release || !spaceId || !timestamp || !token || !release) {
-        return undefined;
-    }
-
-    if (!(await isValidToken(spaceId, accessToken, timestamp, token))) {
-        return undefined;
-    }
-
-    return {
-        version: 'draft',
-        from_release: release !== '0' ? release : undefined,
-    };
 };
 
 export function withPreview(): NgStoryblokPreviewFeature {
@@ -63,7 +41,32 @@ export function withPreview(): NgStoryblokPreviewFeature {
         {
             provide: NG_STORYBLOK_PREVIEW,
             useValue: <StoryblokPreview>{
-                preview: storyblokPreview,
+                preview: async () => {
+                    const router = inject(Router);
+                    const accessToken = inject(NG_STORYBLOK_ACCESS_TOKEN);
+                    const navigation = router.getCurrentNavigation();
+
+                    if (!navigation) {
+                        throw new Error('ngStoryblok: NO_ROUTER_NAVIGATION');
+                    }
+
+                    const { queryParams } = navigation.extractedUrl;
+
+                    const release = queryParams['_storyblok_release'];
+                    const spaceId = queryParams['_storyblok_tk[space_id]'];
+                    const timestamp = queryParams['_storyblok_tk[timestamp]'];
+                    const token = queryParams['_storyblok_tk[token]'];
+
+                    try {
+                        await validateStoryblokPreview({ spaceId, accessToken, timestamp, token });
+                        return {
+                            version: 'draft',
+                            from_release: release !== '0' ? release : undefined,
+                        };
+                    } catch (e) {
+                        return undefined;
+                    }
+                },
             },
         },
     ]);

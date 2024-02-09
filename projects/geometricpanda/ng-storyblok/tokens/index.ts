@@ -1,5 +1,4 @@
 export * from './access-token.token';
-export * from './api-plugin.token';
 export * from './api-region.token';
 export * from './bloks.token';
 export * from './cache.token';
