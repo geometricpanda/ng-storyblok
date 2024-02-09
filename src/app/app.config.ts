@@ -12,7 +12,6 @@ import {
     withCache,
     withDefaultPath,
     withNgOptimisedImage,
-    withPreview,
 } from '@geometricpanda/ng-storyblok/config';
 
 import { provideClientHydration } from '@angular/platform-browser';
@@ -31,7 +30,7 @@ export const appConfig: ApplicationConfig = {
         provideNgStoryblok(
             withAccessToken('ng4mrSeUen31b5G1kAu8eQtt'),
             withDefaultPath('home'),
-            withPreview(),
+            // withPreview(),
             withCache(),
             withNgOptimisedImage(),
             withBloks({
