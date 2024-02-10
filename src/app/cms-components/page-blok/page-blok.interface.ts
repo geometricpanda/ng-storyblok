@@ -1,5 +1,8 @@
 import { StoryblokContent, StoryblokNested } from '@geometricpanda/ng-storyblok';
 
 export type PageBlok = StoryblokContent<{
-    body: Array<StoryblokNested>;
+    before: Array<StoryblokNested>;
+    main: Array<StoryblokNested>;
+    aside: Array<StoryblokNested>;
+    after: Array<StoryblokNested>;
 }>;

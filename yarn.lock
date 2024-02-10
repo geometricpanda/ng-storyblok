@@ -8496,6 +8496,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"modern-css-reset@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "modern-css-reset@npm:1.4.0"
+  checksum: 10c0/b69603972fd4b5f03ced962c0c6c81447b2f343e33b396e86413501c14a873b20c532337b21fa0a7017a24c37fe134482e3dae36feb549f28bc02bd46adbc40b
+  languageName: node
+  linkType: hard
+
 "mrmime@npm:2.0.0":
   version: 2.0.0
   resolution: "mrmime@npm:2.0.0"
@@ -8673,6 +8680,7 @@ __metadata:
     karma-jasmine: "npm:~5.1.0"
     karma-jasmine-html-reporter: "npm:~2.1.0"
     lint-staged: "npm:latest"
+    modern-css-reset: "npm:^1.4.0"
     ng-packagr: "npm:^17.1.0"
     pinst: "npm:^3.0.0"
     prettier: "npm:latest"

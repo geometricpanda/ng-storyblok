@@ -1,6 +1,10 @@
 import { ComponentRef, Directive, effect, inject, input, ViewContainerRef } from '@angular/core';
 import { StoryblokBlok } from '@geometricpanda/ng-storyblok';
-import { NG_STORYBLOK_BRIDGE, NG_STORYBLOK_LOADERS } from '@geometricpanda/ng-storyblok/tokens';
+import {
+    NG_STORYBLOK_BRIDGE,
+    NG_STORYBLOK_FALLBACK_LOADER,
+    NG_STORYBLOK_LOADERS,
+} from '@geometricpanda/ng-storyblok/tokens';
 import { storyblokEditable } from '@storyblok/js';
 import { SbBlokData } from '@storyblok/js/dist/types/types';
 import { ISbComponentType } from 'storyblok-js-client/src/interfaces';
@@ -11,6 +15,7 @@ import { loadComponentChunk } from '../render';
     standalone: true,
 })
 export class StoryblokBlokDirective {
+    fallbackLoader = inject(NG_STORYBLOK_FALLBACK_LOADER);
     loader = inject(NG_STORYBLOK_LOADERS);
     bridge = inject(NG_STORYBLOK_BRIDGE, { optional: true });
     viewContainerRef = inject(ViewContainerRef);
@@ -22,6 +27,7 @@ export class StoryblokBlokDirective {
         const blok = this.blok();
 
         const Component = await loadComponentChunk({
+            fallbackLoader: this.fallbackLoader,
             loaders: this.loader,
             blok,
         });

@@ -1,0 +1,20 @@
+.image__img {
+    height: auto;
+    vertical-align: center;
+}
+
+.image__link {
+    display: flex;
+}
+
+.image__link:hover {
+    cursor: pointer;
+}
+
+.image__link:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow:
+        0 0 0 2px var(--color-surface),
+        0 0 0 4px var(--color-secondary);
+}

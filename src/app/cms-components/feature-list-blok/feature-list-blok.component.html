@@ -1,0 +1,7 @@
+<ul class="feature-list">
+    @for (listItem of blok().children; track listItem._uid) {
+        <li class="feature-list__item">
+            <ng-container [storyblokBlok]="listItem"/>
+        </li>
+    }
+</ul>

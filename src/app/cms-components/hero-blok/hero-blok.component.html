@@ -1,0 +1,5 @@
+<div class="hero">
+    @for (child of blok().children; track child._uid) {
+        <ng-container [storyblokBlok]="child" />
+    }
+</div>

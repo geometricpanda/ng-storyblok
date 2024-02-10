@@ -3,6 +3,7 @@ import { CanActivateFn } from '@angular/router';
 import { Storyblok } from '@geometricpanda/ng-storyblok/services';
 import {
     NG_STORYBLOK_DEFAULT_PATH,
+    NG_STORYBLOK_FALLBACK_LOADER,
     NG_STORYBLOK_LOADERS,
     NG_STORYBLOK_PREVIEW,
     NG_STORYBLOK_RESOLVE_LINKS,
@@ -34,6 +35,7 @@ const getComponentNames = (acc: Set<string>, block: any): Set<string> => {
 export const preloadComponentsGuard: CanActivateFn = async (route) => {
     const storyblok = inject(Storyblok);
     const blockLoaders = inject(NG_STORYBLOK_LOADERS);
+    const fallbackLoader = inject(NG_STORYBLOK_FALLBACK_LOADER);
     const defaultPath = inject(NG_STORYBLOK_DEFAULT_PATH);
     const preview = inject(NG_STORYBLOK_PREVIEW, { optional: true });
     const resolveLinks = inject(NG_STORYBLOK_RESOLVE_LINKS, { optional: true }) ?? undefined;
@@ -62,8 +64,7 @@ export const preloadComponentsGuard: CanActivateFn = async (route) => {
             const loader = blockLoaders[component];
 
             if (!loader) {
-                throw new Error(`ngStoryblok - NO_LOADER_FOUND
-No loader found for blok: ${component}`);
+                return fallbackLoader();
             }
 
             return loader();

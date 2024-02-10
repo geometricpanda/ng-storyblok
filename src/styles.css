@@ -1,9 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@import "modern-css-reset/dist/reset.css";
+
 :root {
     --font-family: 'Inter Tight', sans-serif;
+
+    --color-surface: #2A202A;
+    --color-light: #FFF;
+    --color-primary: #a18cd1;
+    --color-secondary: #F9DEE9;
+    --color-secondary-50: rgb(249 222 233 / .5);
 }
 
 body {
-    background-color: black;
-    color: white;
+    background-color: var(--color-surface);
+    color: var(--color-secondary);
 }

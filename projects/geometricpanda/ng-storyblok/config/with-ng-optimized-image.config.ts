@@ -12,7 +12,7 @@ export function withNgOptimizedImage({
         {
             provide: IMAGE_LOADER,
             useValue: (config: ImageLoaderConfig) => {
-                if (config.src.startsWith('https://a.storyblok.com')) {
+                if (config.src.startsWith('https://a.storyblok.com') && !config.src.endsWith('.svg')) {
                     return config.width
                         ? `${config.src}/m/${config.width}x0/filters:quality(${quality})`
                         : `${config.src}/m/0x0/filters:quality(${quality})`;

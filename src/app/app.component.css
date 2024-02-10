@@ -1,0 +1,18 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.app__header {
+    flex-grow: 0;
+}
+
+.app__body {
+    flex-grow: 1;
+}
+
+.app__footer {
+    flex-grow: 0;
+}

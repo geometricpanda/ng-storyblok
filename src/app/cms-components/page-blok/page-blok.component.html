@@ -1,7 +1,30 @@
 <div class="page">
-    <div class="page__container">
-        @for (child of blok().content.body; track child._uid) {
-            <ng-container [storyblokBlok]="child" />
+    @if (blok().content.before.length) {
+        <section class="page__before">
+            @for (child of blok().content.before; track child._uid) {
+                <ng-container [storyblokBlok]="child" />
+            }
+        </section>
+    }
+    <div class="page__body">
+        <main class="page__main">
+            @for (child of blok().content.main; track child._uid) {
+                <ng-container [storyblokBlok]="child" />
+            }
+        </main>
+        @if (blok().content.aside.length) {
+            <aside class="page__aside">
+                @for (child of blok().content.aside; track child._uid) {
+                    <ng-container [storyblokBlok]="child" />
+                }
+            </aside>
         }
     </div>
+    @if (blok().content.after.length) {
+        <section class="page__after">
+            @for (child of blok().content.after; track child._uid) {
+                <ng-container [storyblokBlok]="child" />
+            }
+        </section>
+    }
 </div>

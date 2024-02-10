@@ -14,4 +14,5 @@ export type BlokLoaders = Record<string, BlokLoader>;
 /**
  * Injection token for blok loaders
  */
-export const NG_STORYBLOK_LOADERS = new InjectionToken<BlokLoaders>('NG_STORYBLOK_LPOADERS');
+export const NG_STORYBLOK_LOADERS = new InjectionToken<BlokLoaders>('NG_STORYBLOK_LOADERS');
+export const NG_STORYBLOK_FALLBACK_LOADER = new InjectionToken<BlokLoader>('NG_STORYBLOK_FALLBACK_LOADER');

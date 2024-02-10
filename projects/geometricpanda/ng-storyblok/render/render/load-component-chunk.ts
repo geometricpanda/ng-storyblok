@@ -1,7 +1,7 @@
 import { Type } from '@angular/core';
 import { DefaultExport } from '@angular/router';
 import { StoryblokBlok } from '@geometricpanda/ng-storyblok';
-import { BlokLoaders } from '@geometricpanda/ng-storyblok/tokens';
+import { BlokLoader, BlokLoaders } from '@geometricpanda/ng-storyblok/tokens';
 import { ISbComponentType } from 'storyblok-js-client';
 
 const isWrappedDefaultExport = <T>(value: T | DefaultExport<T>): value is DefaultExport<T> =>
@@ -12,10 +12,11 @@ const maybeUnwrapDefaultExport = <T>(input: T | DefaultExport<T>): T =>
 
 export interface RenderOptions {
     loaders: BlokLoaders;
+    fallbackLoader: BlokLoader;
     blok: ISbComponentType<string>;
 }
 
-export const loadComponentChunk = async ({ loaders, blok }: RenderOptions) => {
+export const loadComponentChunk = async ({ loaders, blok, fallbackLoader }: RenderOptions) => {
     if (!blok.component) {
         console.error(
             `ngStoryblok - NO_BLOK_COMPONENT
@@ -30,16 +31,8 @@ The blok does not have a component defined.
     const loader = loaders[blok.component];
 
     if (!loader) {
-        console.error(
-            `ngStoryblok - NO_BLOK_LOADER
-
-No blok loader found for component '${blok.component}'.
-
-Loaders:
-`,
-            loaders,
-        );
-        throw new Error('ngStoryblok - NO_BLOK_LOADER');
+        const chunk = await fallbackLoader();
+        return maybeUnwrapDefaultExport(chunk) as Type<StoryblokBlok>;
     }
 
     const chunk = await loader();

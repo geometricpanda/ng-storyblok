@@ -1,0 +1,13 @@
+.feature-list-item {
+
+}
+
+.feature-list-item__content {
+    font-family: var(--font-family);
+    font-size: 1rem;
+    line-height: 1.3em;
+    font-weight: 300;
+    color: var(--color-light);
+    padding: 0;
+    margin: 0;
+}

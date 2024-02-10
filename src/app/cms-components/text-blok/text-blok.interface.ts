@@ -2,7 +2,6 @@ import { StoryblokNested } from '@geometricpanda/ng-storyblok';
 
 export type TextBlok = StoryblokNested<{
     element: 'h1' | 'h2' | 'h3' | 'p';
-    style: 't100' | 't200' | 't300' | 't400' | 't500' | 't600' | 't700' | 't800' | 't900';
+    style: 'headline' | 'strapline' | 'title' | 'subtitle' | 'lead' | 'paragraph' | 'small';
     content: string;
-    gradient: boolean;
 }>;

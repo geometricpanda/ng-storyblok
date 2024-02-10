@@ -11,16 +11,14 @@ import { TextBlok } from './text-blok.interface';
     imports: [StoryblokBlokDirective],
     host:{
         '[class.text-blok]': 'true',
-        '[class.text-blok--gradient]': 'blok().gradient',
-        '[class.text-blok--style-t100]': 'blok().style === "t100"',
-        '[class.text-blok--style-t200]': 'blok().style === "t200"',
-        '[class.text-blok--style-t300]': 'blok().style === "t300"',
-        '[class.text-blok--style-t400]': 'blok().style === "t400"',
-        '[class.text-blok--style-t500]': 'blok().style === "t500"',
-        '[class.text-blok--style-t600]': 'blok().style === "t600"',
-        '[class.text-blok--style-t700]': 'blok().style === "t700"',
-        '[class.text-blok--style-t800]': 'blok().style === "t800"',
-        '[class.text-blok--style-t900]': 'blok().style === "t900"',
+        '[class.text-blok--style-headline]': 'blok().style === "headline"',
+        '[class.text-blok--style-strapline]': 'blok().style === "strapline"',
+        '[class.text-blok--style-title]': 'blok().style === "title"',
+        '[class.text-blok--style-subtitle]': 'blok().style === "subtitle"',
+        '[class.text-blok--style-lead]': 'blok().style === "lead"',
+        '[class.text-blok--style-paragraph]': 'blok().style === "paragraph"',
+        '[class.text-blok--style-small]': 'blok().style === "small"',
+
     }
 })
 export class TextBlokComponent implements StoryblokBlok<TextBlok> {

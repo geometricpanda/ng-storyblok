@@ -1,0 +1,20 @@
+<ng-template #img>
+    @if (image()) {
+        <img
+            class="image__img"
+            [ngSrc]="image()!.filename!"
+            [alt]="image()!.alt"
+            [width]="blok().width || (blok().asset.filename! | storyblokImgWidth)"
+            [height]="blok().height || (blok().asset.filename! | storyblokImgHeight)"
+            [priority]="blok().priority"
+        />
+    }
+</ng-template>
+
+@if (blok().link) {
+    <a [routerLink]="blok().link!.full_slug | storyblokSlug" class="image__link">
+        <ng-container *ngTemplateOutlet="img" />
+    </a>
+} @else {
+    <ng-container *ngTemplateOutlet="img" />
+}
