@@ -1,0 +1,36 @@
+:host(.text-blok) {
+    font-family: var(--font-family);
+    --_font-size: inherit;
+    --_line-height: 1em;
+    --_font-weight: inherit;
+    --_color: inherit;
+    --_background-image: none;
+    --_primary-color: #FFF;
+    --_secondary-color: #F9DEE9;
+}
+
+:host(.text-blok--style-t100) {
+    --_font-size: 1.5rem;
+    --_font-weight: 400;
+    --_color: #000;
+}
+
+:host(.text-blok--style-t900) {
+    --_font-size: 5rem;
+    --_line-height: 1.5em;
+    --_font-weight: 900;
+    --_color: #000;
+}
+
+:host(.text-blok--gradient) .text-blok__text {
+    background-image: -webkit-linear-gradient(45deg, #a18cd1 0%, #F9DEE9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-blok__text {
+    font-size: var(--_font-size);
+    line-height: var(--_line-height);
+    font-weight: var(--_font-weight);
+    color: var(--_color);
+}

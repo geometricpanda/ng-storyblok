@@ -1,0 +1,22 @@
+@switch (blok().element) {
+    @case ('h1') {
+        <h1 class="text-blok__text">
+            {{ blok().content }}
+        </h1>
+    }
+    @case ('h2') {
+        <h2 class="text-blok__text">
+            {{ blok().content }}
+        </h2>
+    }
+    @case ('h3') {
+        <h3 class="text-blok__text">
+            {{ blok().content }}
+        </h3>
+    }
+    @case ('p') {
+        <p class="text-blok__text">
+            {{ blok().content }}
+        </p>
+    }
+}

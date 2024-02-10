@@ -33,9 +33,7 @@ export const appConfig: ApplicationConfig = {
             withResolveRelations(['feature.link']),
             withBloks({
                 [BLOK.PAGE]: () => import('./cms-components/page-blok'),
-                [BLOK.TEASER]: () => import('./cms-components/teaser-blok'),
-                [BLOK.GRID]: () => import('./cms-components/grid-blok'),
-                [BLOK.FEATURE]: () => import('./cms-components/feature-blok'),
+                [BLOK.TEXT]: () => import('./cms-components/text-blok'),
             }),
         ),
     ],
