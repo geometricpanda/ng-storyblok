@@ -6,7 +6,7 @@ import { FeatureListBlok } from './feature-list-blok.interface';
 @Component({
     selector: 'app-feature-list-blok',
     templateUrl: './feature-list-blok.component.html',
-    styleUrls: ['./feature-list-blok.component.scss'],
+    styleUrl: './feature-list-blok.component.css',
     standalone: true,
     imports: [StoryblokBlokDirective],
 })

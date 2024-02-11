@@ -6,7 +6,7 @@ import { SectionBlok } from './section-blok.interface';
 @Component({
     selector: 'app-section-blok',
     templateUrl: './section-blok.component.html',
-    styleUrl: './section-blok.component.scss',
+    styleUrl: './section-blok.component.css',
     standalone: true,
     imports: [StoryblokBlokDirective],
 })

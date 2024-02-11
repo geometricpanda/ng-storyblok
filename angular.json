@@ -11,23 +11,16 @@
             "prefix": "app",
             "architect": {
                 "build": {
-                    "builder": "@angular-devkit/build-angular:application",
+                    "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/ng-storyblok-app",
+                        "outputPath": "dist/ng-storyblok-app/browser",
                         "index": "src/index.html",
-                        "browser": "src/main.ts",
-                        "polyfills": [],
+                        "main": "src/main.ts",
+                        "polyfills": ["zone.js"],
                         "tsConfig": "tsconfig.app.json",
                         "assets": ["src/favicon.ico", "src/assets"],
                         "styles": ["src/styles.css"],
-                        "scripts": [],
-                        "server": "src/main.server.ts",
-                        "prerender": {
-                            "routesFile": "routesfile.txt"
-                        },
-                        "ssr": {
-                            "entry": "server.ts"
-                        }
+                        "scripts": []
                     },
                     "configurations": {
                         "production": {
@@ -91,6 +84,61 @@
                     "options": {
                         "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
                     }
+                },
+                "server": {
+                    "builder": "@angular-devkit/build-angular:server",
+                    "options": {
+                        "outputPath": "dist/ng-storyblok-app/server",
+                        "main": "server.ts",
+                        "tsConfig": "tsconfig.server.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "outputHashing": "media"
+                        },
+                        "development": {
+                            "optimization": false,
+                            "sourceMap": true,
+                            "extractLicenses": false
+                        }
+                    },
+                    "defaultConfiguration": "production"
+                },
+                "serve-ssr": {
+                    "builder": "@angular-devkit/build-angular:ssr-dev-server",
+                    "options": {
+                        "ssl": true,
+                        "sslCert": "./localhost.pem",
+                        "sslKey": "./localhost-key.pem"
+                    },
+                    "configurations": {
+                        "development": {
+                            "browserTarget": "ng-storyblok-app:build:development",
+                            "serverTarget": "ng-storyblok-app:server:development"
+                        },
+                        "production": {
+                            "browserTarget": "ng-storyblok-app:build:production",
+                            "serverTarget": "ng-storyblok-app:server:production"
+                        }
+                    },
+                    "defaultConfiguration": "development"
+                },
+                "prerender": {
+                    "builder": "@angular-devkit/build-angular:prerender",
+                    "options": {
+                        "routes": ["/"]
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "ng-storyblok-app:build:production",
+                            "serverTarget": "ng-storyblok-app:server:production"
+                        },
+                        "development": {
+                            "browserTarget": "ng-storyblok-app:build:development",
+                            "serverTarget": "ng-storyblok-app:server:development"
+                        }
+                    },
+                    "defaultConfiguration": "production"
                 }
             }
         },

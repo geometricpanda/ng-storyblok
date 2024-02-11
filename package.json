@@ -8,9 +8,12 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:ng-storyblok": "node dist/ng-storyblok/server/server.mjs",
     "lint": "ng lint",
-    "prepare": "husky"
+    "prepare": "husky",
+    "dev:ssr": "ng run ng-storyblok-app:serve-ssr",
+    "serve:ssr": "node dist/ng-storyblok-app/server/main.js",
+    "build:ssr": "ng build && ng run ng-storyblok-app:server",
+    "prerender": "ng run ng-storyblok-app:prerender"
   },
   "private": true,
   "dependencies": {
@@ -25,8 +28,6 @@
     "@angular/router": "^17.1.0",
     "@angular/ssr": "^17.1.3",
     "@ng-icons/core": "^26.4.0",
-    "@ng-icons/iconoir": "^26.4.0",
-    "@ng-icons/jam-icons": "^26.4.0",
     "@ng-icons/remixicon": "^26.4.0",
     "@storyblok/js": "^3.0.6",
     "express": "^4.18.2",
@@ -52,6 +53,7 @@
     "@types/node": "^18.18.0",
     "@typescript-eslint/eslint-plugin": "6.19.0",
     "@typescript-eslint/parser": "6.19.0",
+    "browser-sync": "^3.0.0",
     "eslint": "^8.56.0",
     "husky": "^9.0.10",
     "jasmine-core": "~5.1.0",

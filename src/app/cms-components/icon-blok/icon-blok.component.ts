@@ -6,7 +6,7 @@ import { IconBlok } from './icon-blok.interface';
 @Component({
     selector: 'app-icon-blok',
     templateUrl: './icon-blok.component.html',
-    styleUrl: './icon-blok.component.scss',
+    styleUrl: './icon-blok.component.css',
     standalone: true,
     imports: [NgIcon],
     host: {

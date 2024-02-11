@@ -7,7 +7,7 @@ import { FeatureListItemBlok } from './feature-list-item-blok.interface';
 @Component({
     selector: 'app-feature-list-item-blok',
     templateUrl: './feature-list-item-blok.component.html',
-    styleUrls: ['./feature-list-item-blok.component.scss'],
+    styleUrl: './feature-list-item-blok.component.css',
     standalone: true,
     imports: [NgGlyph, NgIcon, StoryblokBlokDirective],
 })

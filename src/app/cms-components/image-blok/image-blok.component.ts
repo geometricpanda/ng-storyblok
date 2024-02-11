@@ -8,7 +8,7 @@ import { ImageBlok } from './image-blok.interface';
 @Component({
     selector: 'app-image-blok',
     templateUrl: './image-blok.component.html',
-    styleUrls: ['./image-blok.component.css'],
+    styleUrl: './image-blok.component.css',
     standalone: true,
     imports: [
         NgOptimizedImage,
