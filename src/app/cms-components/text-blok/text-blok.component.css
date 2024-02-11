@@ -40,7 +40,7 @@
 
 :host(.text-blok--style-paragraph) {
     --_font-size: 1rem;
-    --_line-height: 1.5em;
+    --_line-height: 1.4em;
     --_font-weight: 400;
 }
 
@@ -60,7 +60,7 @@
 :host(.text-blok--style-headline) .text-blok__text,
 :host(.text-blok--style-strapline) .text-blok__text,
 :host(.text-blok--style-title) .text-blok__text {
-    background-image: -webkit-linear-gradient(45deg, var(--color-primary) 0%, var(--color-secondary) 75%);
+    background-image: -webkit-radial-gradient(top right, var(--color-primary) 0%, var(--color-secondary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

@@ -1,14 +1,28 @@
-.feature-list {
+:host(.feature-list) {
+    display: grid;
+    gap: 18px;
+}
+
+.feature-list__list {
     display: grid;
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 24px;
+    gap: 16px;
 }
 
 @media (min-width: 48em) {
-    .feature-list{
+    .feature-list__list {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
+}
+
+.feature-list__list-item {
+    display: block;
+}
+
+.feature-list__view-all {
+    display: flex;
+    justify-content: center;
 }
 

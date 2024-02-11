@@ -17,6 +17,8 @@ import { IconBlok } from './icon-blok.interface';
         '[class.icon--color-success]': 'blok().color === "success"',
         '[class.icon--color-light]': 'blok().color === "light"',
         '[class.icon--color-dark]': 'blok().color === "dark"',
+        '[class.icon--color-vibrant]': 'blok().color === "vibrant"',
+        '[class.icon--color-dim]': 'blok().color === "dim"',
         '[class.icon--color-inherit]': 'blok().color === "inherit"',
         '[class.icon--size-1x]': 'blok().size === "1"',
         '[class.icon--size-1point5x]': 'blok().size === "1.5"',

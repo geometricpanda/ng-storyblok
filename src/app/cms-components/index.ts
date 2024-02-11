@@ -9,5 +9,6 @@ export const enum BLOK {
     FEATURE_LIST = 'feature-list',
     FEATURE_LIST_ITEM = 'feature-list-item',
     ICON = 'icon',
+    SEPARATOR = 'separator',
     SECTION = 'section',
 }

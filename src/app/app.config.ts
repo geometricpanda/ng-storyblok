@@ -23,14 +23,17 @@ import {
     remixFileImageLine,
     remixFileTransferLine,
     remixGitMergeLine,
+    remixGlobeLine,
     remixInputCursorMove,
     remixPageSeparator,
     remixQuillPenLine,
     remixRefreshLine,
+    remixServerLine,
     remixTimerFlashLine,
 } from '@ng-icons/remixicon';
 
 import { provideClientHydration } from '@angular/platform-browser';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { appRoutes } from './app.routes';
 import { BLOK } from './cms-components';
 
@@ -38,6 +41,7 @@ export const appConfig: ApplicationConfig = {
     providers: [
         provideClientHydration(),
         provideHttpClient(withFetch()),
+        provideAnimationsAsync(),
         provideRouter(appRoutes, withEnabledBlockingInitialNavigation(), withComponentInputBinding()),
         provideIcons({
             remixBracesLine,
@@ -50,6 +54,8 @@ export const appConfig: ApplicationConfig = {
             remixFileImageLine,
             remixTimerFlashLine,
             remixQuillPenLine,
+            remixGlobeLine,
+            remixServerLine,
         }),
         provideNgStoryblok(
             withAccessToken('ng4mrSeUen31b5G1kAu8eQtt'),
@@ -70,6 +76,7 @@ export const appConfig: ApplicationConfig = {
                 [BLOK.FEATURE_LIST_ITEM]: () => import('./cms-components/feature-list-item-blok'),
                 [BLOK.ICON]: () => import('./cms-components/icon-blok'),
                 [BLOK.SECTION]: () => import('./cms-components/section-blok'),
+                [BLOK.SEPARATOR]: () => import('./cms-components/separator-blok'),
             }),
         ),
     ],

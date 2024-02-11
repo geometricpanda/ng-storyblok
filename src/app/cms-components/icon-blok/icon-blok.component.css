@@ -43,7 +43,15 @@
 }
 
 :host(.icon--color-dark) {
-    --_icon-color: var(--color-secondary);
+    --_icon-color: var(--color-dark);
+}
+
+:host(.icon--color-vibrant) {
+    --_icon-color: var(--color-vibrant);
+}
+
+:host(.icon--color-dim) {
+    --_icon-color: var(--color-dim);
 }
 
 :host(.icon--color-inherit) {

@@ -1,7 +1,15 @@
-<ul class="feature-list">
-    @for (listItem of blok().children; track listItem._uid) {
-        <li class="feature-list__item">
-            <ng-container [storyblokBlok]="listItem"/>
+<ul class="feature-list__list"  [@filterAnimation]="limit()">
+    @for (listItem of features(); track listItem._uid) {
+        <li class="feature-list__list-item">
+            <ng-container [storyblokBlok]="listItem" />
         </li>
     }
 </ul>
+
+@if (blok().children.length > limit()) {
+    <div class="feature-list__view-all">
+        <button app-button outline (click)="handleClick()">
+            View All
+        </button>
+    </div>
+}

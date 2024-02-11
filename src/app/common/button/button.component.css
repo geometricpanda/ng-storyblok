@@ -1,0 +1,72 @@
+:host(.button) {
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 8px 16px;
+    min-width: 100%;
+    color: var(--color-light);
+    transition-timing-function: linear;
+    transition-duration: 300ms;
+    transition-property: border-image-source, background-color;
+    font-weight: 600;
+    text-transform: uppercase;
+    position: relative;
+    cursor: pointer;
+}
+
+:host(.button):after {
+    position: absolute;
+    inset: 0;
+    content: '';
+    z-index: -1;
+    background: radial-gradient(circle at bottom left, var(--color-dim), var(--color-vibrant));
+    transition-timing-function: linear;
+    transition-duration: 300ms;
+    transition-property: opacity;
+}
+
+:host(.button):focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+}
+
+:host(.button):hover,
+:host(.button):focus-visible {
+    background-color: var(--color-secondary-20);
+}
+
+:host(.button):hover:after,
+:host(.button):focus-visible:after {
+    opacity: 0;
+}
+
+@media (min-width: 36em) {
+    :host(.button) {
+        min-width: 20rem;
+    }
+}
+
+:host(.button--primary) {
+    border-image-source: radial-gradient(circle at top right, var(--color-dim), var(--color-vibrant));
+    border-image-slice: 1;
+
+}
+:host(.button--primary):hover {
+    border-image-source: radial-gradient(circle at left, var(--color-primary), var(--color-vibrant));
+}
+
+:host(.button--secondary) {
+    /*border-image-slice: 1;*/
+    /*border-image-source: radial-gradient(circle at left, var(--color-vibrant), var(--color-dim));*/
+}
+
+:host(.button--outline) {
+    border: 0;
+    border-bottom: 2px solid var(--color-light);
+    border-image-source: radial-gradient(circle at left, var(--color-vibrant), var(--color-dim));
+    border-image-slice: 1;
+}
+
+
+:host(.button--outline):after {
+    display: none;
+}
