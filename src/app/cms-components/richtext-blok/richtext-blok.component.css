@@ -1,5 +1,8 @@
 .content {
     font-family: var(--font-family);
+    gap: 1rem;
+    display: grid;
+
     --_color: var(--color-light);
     --_font-size: inherit;
     --_line-height: 1.3em;
