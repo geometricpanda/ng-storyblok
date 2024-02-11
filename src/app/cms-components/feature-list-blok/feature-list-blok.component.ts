@@ -30,7 +30,7 @@ import { FeatureListBlok } from './feature-list-blok.interface';
 export class FeatureListBlokComponent implements StoryblokBlok<FeatureListBlok> {
     blok = input.required<FeatureListBlok>();
 
-    limit = signal<number>(5);
+    limit = signal<number>(6);
 
     features = computed(() => {
         const blok = this.blok();
