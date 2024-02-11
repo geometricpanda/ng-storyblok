@@ -20,6 +20,12 @@
     --_font-weight: 400;
 }
 
+.content ::ng-deep a {
+    --_color: var(--color-info);
+    --_font-size: inherit;
+    --_font-weight: inherit;
+}
+
 .content ::ng-deep small {
     --_font-size: .875rem;
     --_font-weight: 300;
