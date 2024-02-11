@@ -1,7 +1,7 @@
 import { Route } from '@angular/router';
-import { ngSbRoute } from '@geometricpanda/ng-storyblok/router';
+import { storyblokRoute } from '@geometricpanda/ng-storyblok/router';
 
-const storyblok: Route = ngSbRoute({
+const storyblok: Route = storyblokRoute({
     path: '**',
 });
 

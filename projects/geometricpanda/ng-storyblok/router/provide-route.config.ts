@@ -4,12 +4,14 @@ import { resolveStory } from './resolve-story.guard';
 import { matchStoryblokRoute } from './storyblok-route.can-match';
 
 import { StoryblokRootComponent } from '@geometricpanda/ng-storyblok/render';
+import { resolveTitle } from './resolve-title.guard';
 
-export type NgSbRoute = Omit<Route, 'loadComponent' | 'loadChildren' | 'component'>;
+export type StoryblokRoute = Omit<Route, 'loadComponent' | 'loadChildren' | 'component'>;
 
-export const ngSbRoute = (route: NgSbRoute): Route => ({
+export const storyblokRoute = (route: StoryblokRoute): Route => ({
     ...route,
     component: StoryblokRootComponent,
+    title: resolveTitle,
     canMatch: [matchStoryblokRoute],
     canActivate: [preloadComponentsGuard],
     resolve: {
