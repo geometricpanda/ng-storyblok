@@ -20,7 +20,7 @@ import { FeatureListBlok } from './feature-list-blok.interface';
             transition(':increment', [
                 query(
                     ':enter',
-                    [style({ opacity: 0 }), stagger(50, [animate('300ms ease-out', style({ opacity: 1 }))])],
+                    [style({ opacity: 0 }), stagger(100, [animate('200ms linear', style({ opacity: 1 }))])],
                     { optional: true },
                 ),
             ]),

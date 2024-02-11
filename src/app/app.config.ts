@@ -20,6 +20,7 @@ import { provideIcons } from '@ng-icons/core';
 import {
     remixAngularjsFill,
     remixBracesLine,
+    remixDatabase2Line,
     remixFileImageLine,
     remixFileTransferLine,
     remixGitMergeLine,
@@ -44,6 +45,7 @@ export const appConfig: ApplicationConfig = {
         provideAnimationsAsync(),
         provideRouter(appRoutes, withEnabledBlockingInitialNavigation(), withComponentInputBinding()),
         provideIcons({
+            remixDatabase2Line,
             remixBracesLine,
             remixAngularjsFill,
             remixPageSeparator,

@@ -1,15 +1,18 @@
 :host(.separator) {
     display: block;
-    border-top: 1px solid transparent;
+    border-top: 2px solid transparent;
     border-radius: 1px;
     border-image-slice: 1;
     border-image-source: linear-gradient(90deg, var(--color-vibrant), var(--color-dim));
 
 }
 
+:host(.separator--margin-lg) {
+    margin-block: 48px;
+}
+
 :host(.separator--margin-xl) {
-    margin-top: 48px;
-    margin-bottom: 48px;
+    margin-block: 48px;
 }
 
 .separator__hr {

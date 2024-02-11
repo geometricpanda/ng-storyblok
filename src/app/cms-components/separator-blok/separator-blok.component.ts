@@ -9,7 +9,8 @@ import { SeparatorBlok } from './separator-blok.interface';
     standalone: true,
     host: {
         '[class.separator]': 'true',
-        '[class.separator--margin-xl]': 'true',
+        '[class.separator--margin-lg]': 'true',
+        '[class.separator--margin-xl]': 'false',
     },
 })
 export class SeparatorBlokComponent implements StoryblokBlok<SeparatorBlok> {
