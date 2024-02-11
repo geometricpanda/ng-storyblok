@@ -16,6 +16,7 @@
 
 .content ::ng-deep p {
     --_font-size: 1rem;
+    --_line-height: 1.5em;
     --_font-weight: 400;
 }
 

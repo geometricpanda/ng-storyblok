@@ -6,4 +6,5 @@
     border-bottom: 1px solid var(--color-secondary-50);
     place-items: center;
     place-content: center;
+    gap: 16px;
 }

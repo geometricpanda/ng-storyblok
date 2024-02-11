@@ -17,6 +17,7 @@
 :host(.text-blok--style-strapline) {
     --_color: var(--color-secondary);
     --_font-size: 2rem;
+    --_line-height: 1.1em;
     --_font-weight: 700;
 }
 
@@ -39,6 +40,7 @@
 
 :host(.text-blok--style-paragraph) {
     --_font-size: 1rem;
+    --_line-height: 1.5em;
     --_font-weight: 400;
 }
 
