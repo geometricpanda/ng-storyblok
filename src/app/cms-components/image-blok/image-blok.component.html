@@ -4,6 +4,7 @@
             class="image__img"
             [ngSrc]="image()!.filename!"
             [alt]="image()!.alt"
+            [title]="image()!.title || null"
             [width]="blok().width || (blok().asset.filename! | storyblokImgWidth)"
             [height]="blok().height || (blok().asset.filename! | storyblokImgHeight)"
             [priority]="blok().priority"
