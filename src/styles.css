@@ -18,6 +18,7 @@
 }
 
 body {
+    font-family: var(--font-family);
     background-color: var(--color-surface);
     color: var(--color-secondary);
 }
