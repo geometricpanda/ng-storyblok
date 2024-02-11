@@ -1,8 +1,16 @@
 @import "modern-css-reset/dist/reset.css";
 
+@font-face {
+    font-family: 'Inter Tight';
+    font-style: normal;
+    font-weight: 300 900;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/intertight/v7/NGSwv5HMAFg6IuGlBNMjxLsH8ahuQ2e8.woff2) format('woff2-variations');
+}
+
+
 :root {
     --font-family: 'Inter Tight', sans-serif;
-
     --color-surface: #2A202A;
     --color-light: #FFF;
     --color-dark: #413152;
