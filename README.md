@@ -39,3 +39,7 @@ then update your `angular.json` (or `project.json`) serve schematic to include:
         "sslKey": "./localhost-key.pem"
     },
 ```
+
+## TODO
+- [] refactor bridge to be tree-shakeable
+- [] add tests

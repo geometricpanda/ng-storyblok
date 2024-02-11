@@ -8,11 +8,11 @@ import {
     withBloks,
     withBridge,
     withCache,
-    withDefaultPath,
     withNgOptimizedImage,
     withPreview,
     withResolveLinks,
     withResolveRelations,
+    withTitleTemplate,
 } from '@geometricpanda/ng-storyblok/config';
 
 import { provideIcons } from '@ng-icons/core';
@@ -35,6 +35,7 @@ import {
 
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { withSlugRewrite } from '../../projects/geometricpanda/ng-storyblok/config/with-slug-rewrite.config';
 import { appRoutes } from './app.routes';
 import { BLOK } from './cms-components';
 
@@ -61,13 +62,14 @@ export const appConfig: ApplicationConfig = {
         }),
         provideNgStoryblok(
             withAccessToken('ng4mrSeUen31b5G1kAu8eQtt'),
-            withDefaultPath('home'),
             withPreview(),
-            withCache(),
             withBridge(),
+            withCache(),
             withNgOptimizedImage(),
             withResolveLinks('story'),
             withResolveRelations(['image.link']),
+            withTitleTemplate('{{name}} • ngStoryblok'),
+            withSlugRewrite((slug) => slug || 'home'),
             withBloks({
                 [BLOK.PAGE]: () => import('./cms-components/page-blok'),
                 [BLOK.HERO]: () => import('./cms-components/hero-blok'),

@@ -7,6 +7,7 @@ import { ISbStories } from 'storyblok-js-client/src/interfaces';
 import {
     DELETE_CONTEXT,
     DeleteContext,
+    GET_ALL_CONTEXT,
     GET_CONTEXT,
     GET_STORIES_CONTEXT,
     GET_STORY_CONTEXT,
@@ -36,7 +37,7 @@ export class Storyblok {
     }
 
     public getAll<T = unknown>(slug: string, params: GetAllContext = {}) {
-        const context = new HttpContext().set(GET_CONTEXT, params);
+        const context = new HttpContext().set(GET_ALL_CONTEXT, params);
         return this.#httpClient.get<Array<T>>(slug, { context });
     }
 

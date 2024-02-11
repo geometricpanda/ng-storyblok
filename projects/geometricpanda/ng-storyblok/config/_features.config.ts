@@ -16,6 +16,8 @@ export const enum NgStoryblokFeatureKind {
     ResolveRelationsFeature,
     ResolveLinksFeature,
     BridgeFeature,
+    TitleTemplateFeature,
+    SlugRewriteFeature,
 }
 
 export type NgStoryblokAccessTokenFeature = NgStoryblokFeature<NgStoryblokFeatureKind.AccessTokenFeature>;
@@ -30,6 +32,8 @@ export type NgStoryblokPreviewFeature = NgStoryblokFeature<NgStoryblokFeatureKin
 export type NgStoryblokResolveRelationsFeature = NgStoryblokFeature<NgStoryblokFeatureKind.ResolveRelationsFeature>;
 export type NgStoryblokResolveLinksFeature = NgStoryblokFeature<NgStoryblokFeatureKind.ResolveLinksFeature>;
 export type NgStoryblokBridgeFeature = NgStoryblokFeature<NgStoryblokFeatureKind.BridgeFeature>;
+export type NgStoryblokTitleTemplateFeature = NgStoryblokFeature<NgStoryblokFeatureKind.TitleTemplateFeature>;
+export type NgStoryblokSlugRewriteFeature = NgStoryblokFeature<NgStoryblokFeatureKind.SlugRewriteFeature>;
 
 export interface NgStoryblokFeature<FeatureKind extends NgStoryblokFeatureKind> {
     ɵkind: FeatureKind;
@@ -58,4 +62,6 @@ export type NgStoryblokFeatures =
     | NgStoryblokPreviewFeature
     | NgStoryblokResolveRelationsFeature
     | NgStoryblokResolveLinksFeature
-    | NgStoryblokBridgeFeature;
+    | NgStoryblokBridgeFeature
+    | NgStoryblokTitleTemplateFeature
+    | NgStoryblokSlugRewriteFeature;

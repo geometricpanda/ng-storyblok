@@ -1,6 +1,4 @@
-import { JsonPipe } from '@angular/common';
-import { Component, inject, input, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component, input } from '@angular/core';
 import { StoryblokBlok } from '@geometricpanda/ng-storyblok';
 import { StoryblokBlokDirective } from '@geometricpanda/ng-storyblok/render';
 import { PageBlok } from './page-blok.interface';
@@ -10,14 +8,8 @@ import { PageBlok } from './page-blok.interface';
     templateUrl: './page-blok.component.html',
     styleUrl: './page-blok.component.css',
     standalone: true,
-    imports: [StoryblokBlokDirective, JsonPipe],
+    imports: [StoryblokBlokDirective],
 })
-export class PageBlokComponent implements StoryblokBlok<PageBlok>, OnInit {
-    title = inject(Title);
-
+export class PageBlokComponent implements StoryblokBlok<PageBlok> {
     blok = input.required<PageBlok>();
-
-    ngOnInit() {
-        this.title.setTitle(this.blok().name);
-    }
 }
