@@ -1,6 +1,12 @@
 <div class="feature-list-item">
     <div class="feature-list-item__icon">
-
+        @for (icon of blok().icon; track icon._uid){
+            <ng-container [storyblokBlok]="icon"/>
+        }
     </div>
-    <p class="feature-list-item__content">{{ blok().text }}</p>
+    <div class="feature-list-item__content">
+        @for (text of blok().text; track text._uid){
+            <ng-container [storyblokBlok]="text"/>
+        }
+    </div>
 </div>

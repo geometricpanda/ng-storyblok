@@ -1,4 +1,8 @@
-<div class="page">
+<div
+    class="page"
+    [class.page--layout-single]="blok().content.layout==='single'"
+    [class.page--layout-double]="blok().content.layout==='double'"
+>
     @if (blok().content.before.length) {
         <section class="page__before">
             @for (child of blok().content.before; track child._uid) {

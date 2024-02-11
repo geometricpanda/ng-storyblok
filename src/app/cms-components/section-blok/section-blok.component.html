@@ -1,0 +1,17 @@
+<div class="section"
+     [class.section--padding-top-sm]="blok().paddingTop === 'sm'"
+     [class.section--padding-top-md]="blok().paddingTop === 'md'"
+     [class.section--padding-top-lg]="blok().paddingTop === 'lg'"
+     [class.section--padding-top-xl]="blok().paddingTop === 'xl'"
+     [class.section--padding-top-none]="blok().paddingTop === 'none'"
+     [class.section--padding-bottom-sm]="blok().paddingBottom === 'sm'"
+     [class.section--padding-bottom-md]="blok().paddingBottom === 'md'"
+     [class.section--padding-bottom-lg]="blok().paddingBottom === 'lg'"
+     [class.section--padding-bottom-xl]="blok().paddingBottom === 'xl'"
+     [class.section--padding-bottom-none]="blok().paddingBottom === 'none'"
+     [class.section--gap]="blok().gap"
+>
+    @for (child of blok().children; track child._uid) {
+        <ng-container [storyblokBlok]="child" />
+    }
+</div>

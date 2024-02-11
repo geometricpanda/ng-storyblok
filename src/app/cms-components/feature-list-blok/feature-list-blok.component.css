@@ -1,8 +1,14 @@
 .feature-list {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 8px;
+    gap: 24px;
 }
+
+@media (min-width: 48em) {
+    .feature-list{
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+

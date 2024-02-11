@@ -1,10 +1,17 @@
 .page {
-    max-width: 1200px;
     margin: auto;
     padding-inline: 16px;
     display: flex;
     flex-direction: column;
     gap: 48px;
+}
+
+.page--layout-single {
+    max-width: 900px;
+}
+
+.page--layout-double {
+    max-width: 1200px;
 }
 
 .page__body {

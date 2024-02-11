@@ -1,0 +1,49 @@
+:host(.icon) {
+    --_icon-size: 1rem;
+    --_icon-color: inherit;
+    font-size: var(--_icon-size);
+    line-height: 1em;
+    aspect-ratio: 1/1;
+    display: flex;
+    color: var(--_icon-color);
+}
+
+:host(.icon--size-1point5x) {
+    --_icon-size: 1.5rem;
+}
+
+:host(.icon--size-2x) {
+    --_icon-size: 2rem;
+}
+
+:host(.icon--size-3x) {
+    --_icon-size: 3rem;
+}
+
+:host(.icon--color-info) {
+    --_icon-color: var(--color-info);
+}
+
+:host(.icon--color-success) {
+    --_icon-color: var(--color-success);
+}
+
+:host(.icon--color-warning) {
+    --_icon-color: var(--color-warning);
+}
+
+:host(.icon--color-danger) {
+    --_icon-color: var(--color-danger);
+}
+
+:host(.icon--color-light) {
+    --_icon-color: var(--color-light);
+}
+
+:host(.icon--color-dark) {
+    --_icon-color: var(--color-secondary);
+}
+
+:host(.icon--color-inherit) {
+    --_icon-color: inherit;
+}

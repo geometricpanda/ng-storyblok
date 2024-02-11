@@ -1,0 +1,48 @@
+.section {
+    display: grid;
+}
+
+.section--gap {
+    gap: 16px;
+}
+
+
+.section--padding-top-none {
+    padding-top: 0;
+}
+
+.section--padding-top-sm {
+    padding-top: 16px;
+}
+
+.section--padding-top-md {
+    padding-top: 24px;
+}
+
+.section--padding-top-lg {
+    padding-top: 32px;
+}
+
+.section--padding-top-xl {
+    padding-top: 48px;
+}
+
+.section--padding-bottom-none {
+    padding-bottom: 0;
+}
+
+.section--padding-bottom-sm {
+    padding-bottom: 16px;
+}
+
+.section--padding-bottom-md {
+    padding-bottom: 24px;
+}
+
+.section--padding-bottom-lg {
+    padding-bottom: 32px;
+}
+
+.section--padding-bottom-xl {
+    padding-bottom: 48px;
+}

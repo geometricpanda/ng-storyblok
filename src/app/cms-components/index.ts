@@ -8,4 +8,6 @@ export const enum BLOK {
     RICHTEXT = 'richtext',
     FEATURE_LIST = 'feature-list',
     FEATURE_LIST_ITEM = 'feature-list-item',
+    ICON = 'icon',
+    SECTION = 'section',
 }

@@ -5,4 +5,5 @@ export type PageBlok = StoryblokContent<{
     main: Array<StoryblokNested>;
     aside: Array<StoryblokNested>;
     after: Array<StoryblokNested>;
+    layout: 'single' | 'double';
 }>;
