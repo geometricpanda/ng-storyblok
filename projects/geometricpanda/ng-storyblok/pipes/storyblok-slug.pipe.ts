@@ -1,17 +1,18 @@
-import { Pipe, PipeTransform } from '@angular/core';
-
-export const storyblokSlug = (slug: string) => slug.split('/');
-export const storyblokSlugFragment = (slug: string) => {
-    const split = slug.split('#');
-    return split[1] || undefined;
-};
+import { inject, Pipe, PipeTransform } from '@angular/core';
+import { NG_STORYBLOK_SLUG_REWRITE } from '@geometricpanda/ng-storyblok/tokens';
+import { ISbStoryData } from 'storyblok-js-client/src/interfaces';
 
 @Pipe({
     name: 'storyblokSlug',
     standalone: true,
 })
 export class StoryblokSlugPipe implements PipeTransform {
-    transform = storyblokSlug;
+    rewrite = inject(NG_STORYBLOK_SLUG_REWRITE, { optional: true });
+
+    transform({ slug }: ISbStoryData): Array<string> {
+        const finalSlug = this.rewrite?.toUrl(slug) || slug;
+        return finalSlug.split('/');
+    }
 }
 
 @Pipe({
@@ -19,5 +20,8 @@ export class StoryblokSlugPipe implements PipeTransform {
     standalone: true,
 })
 export class StoryblokSlugFragmentPipe implements PipeTransform {
-    transform = storyblokSlugFragment;
+    transform({ slug }: ISbStoryData): string | undefined {
+        const split = slug.split('#');
+        return split[1] || undefined;
+    }
 }

@@ -13,7 +13,7 @@
 </ng-template>
 
 @if (blok().link) {
-    <a [routerLink]="blok().link!.full_slug | storyblokSlug" class="image__link">
+    <a [routerLink]="blok().link! | storyblokSlug" class="image__link">
         <ng-container *ngTemplateOutlet="img" />
     </a>
 } @else {

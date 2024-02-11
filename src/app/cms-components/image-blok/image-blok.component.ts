@@ -17,6 +17,7 @@ import { ImageBlok } from './image-blok.interface';
         RouterLink,
         NgTemplateOutlet,
         StoryblokSlugPipe,
+        StoryblokSlugPipe,
     ],
     host: {
         '[class.image]': 'true',
@@ -24,7 +25,6 @@ import { ImageBlok } from './image-blok.interface';
 })
 export class ImageBlokComponent implements StoryblokBlok<ImageBlok> {
     blok = input.required<ImageBlok>();
-
     image = computed(() => {
         const blok = this.blok();
         if (!blok.asset.filename) {

@@ -17,7 +17,7 @@ export const matchStoryblokRoute: CanMatchFn = async (route, segments) => {
     const resolveRelations = inject(NG_STORYBLOK_RESOLVE_RELATIONS, { optional: true }) ?? undefined;
 
     const slug = segments.map((segment) => segment.path).join('/');
-    const finalSlug = slugRewrite ? slugRewrite(slug) : slug;
+    const finalSlug = slugRewrite?.toStory(slug) || slug;
 
     if (finalSlug) {
         const previewMode = await preview?.preview();

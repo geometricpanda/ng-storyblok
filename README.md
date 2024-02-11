@@ -42,4 +42,5 @@ then update your `angular.json` (or `project.json`) serve schematic to include:
 
 ## TODO
 - [] refactor bridge to be tree-shakeable
-- [] add tests
+- [] write custom renderer for storyblok rich text which supports components maybe?
+- [] write schematic to generate routesfile

@@ -42,7 +42,7 @@ export const preloadComponentsGuard: CanActivateFn = async (route) => {
     const resolveRelations = inject(NG_STORYBLOK_RESOLVE_RELATIONS, { optional: true }) ?? undefined;
 
     const slug = route.url.map(({ path }) => path).join('/');
-    const finalSlug = slugRewrite ? slugRewrite(slug) : slug;
+    const finalSlug = slugRewrite?.toStory(slug) || slug;
 
     const previewMode = await preview?.preview();
 

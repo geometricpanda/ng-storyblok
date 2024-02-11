@@ -69,7 +69,10 @@ export const appConfig: ApplicationConfig = {
             withResolveLinks('story'),
             withResolveRelations(['image.link']),
             withTitleTemplate('{{name}} • ngStoryblok'),
-            withSlugRewrite((slug) => slug || 'home'),
+            withSlugRewrite(
+                (slug) => slug || 'home',
+                (slug) => (slug === 'home' ? '/' : slug),
+            ),
             withBloks({
                 [BLOK.PAGE]: () => import('./cms-components/page-blok'),
                 [BLOK.HERO]: () => import('./cms-components/hero-blok'),
