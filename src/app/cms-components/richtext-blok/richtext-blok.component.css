@@ -11,7 +11,7 @@
 .content ::ng-deep h3 {
     --_color: var(--color-secondary);
     --_font-size: 1.4rem;
-    --_font-weight: 600;
+    --_font-weight: 700;
 }
 
 .content ::ng-deep p {
