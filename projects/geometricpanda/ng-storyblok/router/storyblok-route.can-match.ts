@@ -25,7 +25,9 @@ export const matchStoryblokRoute: CanMatchFn = async (route, segments) => {
             resolve_links: resolveLinks,
             resolve_relations: resolveRelations,
         });
-        return firstValueFrom(req).then((story) => !!story);
+        return firstValueFrom(req)
+            .then((story) => !!story)
+            .catch(() => false);
     }
 
     return false;
