@@ -1,5 +1,5 @@
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import { ApplicationConfig, ɵprovideZonelessChangeDetection } from '@angular/core';
+import { ApplicationConfig } from '@angular/core';
 import { provideRouter, withComponentInputBinding, withEnabledBlockingInitialNavigation } from '@angular/router';
 
 import {
@@ -30,12 +30,13 @@ import {
     remixTimerFlashLine,
 } from '@ng-icons/remixicon';
 
+import { provideClientHydration } from '@angular/platform-browser';
 import { appRoutes } from './app.routes';
 import { BLOK } from './cms-components';
 
 export const appConfig: ApplicationConfig = {
     providers: [
-        ɵprovideZonelessChangeDetection(),
+        provideClientHydration(),
         provideHttpClient(withFetch()),
         provideRouter(appRoutes, withEnabledBlockingInitialNavigation(), withComponentInputBinding()),
         provideIcons({
