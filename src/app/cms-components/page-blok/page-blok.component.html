@@ -12,11 +12,7 @@
     }
     <div class="page__body"
          [class.page__body--with-aside]="blok().content.aside.length > 0">
-        <main class="page__main">
-            @for (child of blok().content.main; track child._uid) {
-                <ng-container [storyblokBlok]="child" />
-            }
-        </main>
+
         @if (blok().content.aside.length) {
             <aside class="page__aside">
                 @for (child of blok().content.aside; track child._uid) {
@@ -24,6 +20,12 @@
                 }
             </aside>
         }
+
+        <main class="page__main">
+            @for (child of blok().content.main; track child._uid) {
+                <ng-container [storyblokBlok]="child" />
+            }
+        </main>
     </div>
     @if (blok().content.after.length) {
         <section class="page__after">

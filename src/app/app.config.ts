@@ -99,6 +99,8 @@ export const appConfig: ApplicationConfig = {
                 [BLOK.STICKY]: () => import('./cms-components/sticky-blok'),
                 [BLOK.CODE]: () => import('./cms-components/code-blok'),
                 [BLOK.IN_THIS_PAGE]: () => import('./cms-components/in-this-page-blok'),
+                [BLOK.TAB]: () => import('./cms-components/tabs-blok').then((m) => m.TabBlokComponent),
+                [BLOK.TABS]: () => import('./cms-components/tabs-blok').then((m) => m.TabsBlokComponent),
             }),
         ),
     ],

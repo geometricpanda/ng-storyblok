@@ -14,4 +14,6 @@ export const enum BLOK {
     STICKY = 'sticky',
     CODE = 'code',
     IN_THIS_PAGE = 'in-this-page',
+    TABS = 'tabs',
+    TAB = 'tab',
 }
