@@ -31,6 +31,7 @@ import {
     remixGitMergeLine,
     remixGlobeLine,
     remixInputCursorMove,
+    remixLinkM,
     remixPageSeparator,
     remixQuillPenLine,
     remixRefreshLine,
@@ -69,6 +70,7 @@ export const appConfig: ApplicationConfig = {
             remixQuillPenLine,
             remixGlobeLine,
             remixServerLine,
+            remixLinkM,
         }),
         provideNgStoryblok(
             withAccessToken('ng4mrSeUen31b5G1kAu8eQtt'),

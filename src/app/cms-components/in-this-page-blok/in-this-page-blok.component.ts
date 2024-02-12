@@ -2,6 +2,7 @@ import { Component, computed, inject, input, ViewEncapsulation } from '@angular/
 import { RouterLink } from '@angular/router';
 import { StoryblokBlok } from '@geometricpanda/ng-storyblok';
 import { NG_STORYBLOK_CONTEXT } from '@geometricpanda/ng-storyblok/tokens';
+import { NgIcon } from '@ng-icons/core';
 import slugify from 'slugify';
 import { BLOK } from '../index';
 import { TextBlok } from '../text-blok/text-blok.interface';
@@ -37,7 +38,7 @@ const getInThisPage = (acc: Set<string>, block: any): Set<string> => {
     styleUrl: './in-this-page-blok.component.css',
     encapsulation: ViewEncapsulation.None,
     standalone: true,
-    imports: [RouterLink],
+    imports: [RouterLink, NgIcon],
 })
 export class InThisPageBlokComponent implements StoryblokBlok<InThisPageBlok> {
     context = inject(NG_STORYBLOK_CONTEXT);

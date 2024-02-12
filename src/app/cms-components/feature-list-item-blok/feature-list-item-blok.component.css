@@ -12,7 +12,7 @@
     background-color: var(--color-surface);
     padding: 8px;
     height: 100%;
-    gap: 16px;
+    gap: 8px;
 }
 
 .feature-list-item__icon {
