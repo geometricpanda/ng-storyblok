@@ -24,6 +24,24 @@
 </div>
 
 <div class="code-blok__footer">
+    @if (copied()) {
+        <span
+            @fade
+            class="code-blok__copied"
+        >
+            copied
+        </span>
+    }
+
+    @if (copiedError()) {
+        <span
+            @fade
+            class="code-blok__copied code-blok__copied--error"
+        >
+            error copying
+        </span>
+    }
+
     <button
         class="code-blok__button"
         (click)="copy()"

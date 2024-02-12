@@ -33,13 +33,25 @@
     --color-info: #4FC3F7;
     --color-success: #81C784;
     --color-warning: #FFD54F;
-    --color-danger: #E57373;
+    --color-error: #E57373;
 }
 
 body {
     font-family: var(--font-family);
     background-color: var(--color-surface);
     color: var(--color-secondary);
+}
+
+.cdk-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
 

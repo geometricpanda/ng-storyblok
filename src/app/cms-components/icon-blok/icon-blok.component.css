@@ -35,7 +35,7 @@
 }
 
 :host(.icon--color-danger) {
-    --_icon-color: var(--color-danger);
+    --_icon-color: var(--color-error);
 }
 
 :host(.icon--color-light) {
