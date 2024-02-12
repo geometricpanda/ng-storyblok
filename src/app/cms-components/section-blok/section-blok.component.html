@@ -9,6 +9,8 @@
      [class.section--padding-bottom-lg]="blok().paddingBottom === 'lg'"
      [class.section--padding-bottom-xl]="blok().paddingBottom === 'xl'"
      [class.section--padding-bottom-none]="blok().paddingBottom === 'none'"
+     [class.section--max-width-single]="blok().maxWidth === 'single'"
+     [class.section--max-width-double]="blok().maxWidth === 'double'"
      [class.section--gap]="blok().gap"
 >
     @for (child of blok().children; track child._uid) {

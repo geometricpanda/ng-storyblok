@@ -1,8 +1,7 @@
 :host(.button) {
     background: transparent;
     border: 1px solid transparent;
-    padding: 8px 16px;
-    min-width: 100%;
+    padding: 8px;
     color: var(--color-light);
     transition-timing-function: linear;
     transition-duration: 300ms;
@@ -37,12 +36,6 @@
 :host(.button):hover:after,
 :host(.button):focus-visible:after {
     opacity: 0;
-}
-
-@media (min-width: 36em) {
-    :host(.button) {
-        min-width: 20rem;
-    }
 }
 
 :host(.button--primary) {

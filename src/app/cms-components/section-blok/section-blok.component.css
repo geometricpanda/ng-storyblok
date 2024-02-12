@@ -1,5 +1,6 @@
 .section {
     display: grid;
+    margin: auto;
 }
 
 .section--gap {
@@ -45,4 +46,12 @@
 
 .section--padding-bottom-xl {
     padding-bottom: 48px;
+}
+
+.section--max-width-single {
+    max-width: 900px;
+}
+
+.section--max-width-double {
+    max-width: 1200px;
 }

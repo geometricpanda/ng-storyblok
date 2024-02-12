@@ -2,13 +2,26 @@
     font-family: var(--font-family);
     gap: 1rem;
     display: grid;
-
+    --_background-color: unset;
+    --_padding: 0;
+    --_margin: 0;
+    --_border-radius: unset;
     --_color: var(--color-light);
     --_font-size: inherit;
     --_line-height: 1.3em;
     --_font-weight: inherit;
     --_background-image: none;
     --_text-transform: none;
+}
+
+.content ::ng-deep code {
+    font-family: var(--font-family-mono);
+    --_font-size: 0.875rem;
+    --_font-weight: 400;
+    --_color: var(--color-light);
+    --_background-color: var(--color-secondary-10);
+    --_padding: 4px 8px;
+    --_border-radius: 4px;
 }
 
 .content ::ng-deep h3 {
@@ -29,16 +42,18 @@
     --_font-weight: inherit;
 }
 
-.content ::ng-deep small {
-    --_font-size: .875rem;
-    --_font-weight: 300;
+.content ::ng-deep b {
+    --_color: var(--color-secondary);
+    --_font-weight: 600;
 }
 
 .content ::ng-deep * {
+    background-color: var(--_background-color);
+    border-radius: var(--_border-radius);
     font-size: var(--_font-size);
     line-height: var(--_line-height);
     font-weight: var(--_font-weight);
     color: var(--_color);
-    padding: 0;
-    margin: 0;
+    padding: var(--_padding);
+    margin: var(--_margin);
 }

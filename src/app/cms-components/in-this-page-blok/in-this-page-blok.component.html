@@ -1,0 +1,12 @@
+<ul class="in-this-page">
+    @for (link of links(); track link.text) {
+        <li  class="in-this-page__item">
+            <a routerLink="."
+               class="in-this-page__link"
+               [fragment]="link.fragment"
+               queryParamsHandling="merge">
+                {{ link.text }}
+            </a>
+        </li>
+    }
+</ul>

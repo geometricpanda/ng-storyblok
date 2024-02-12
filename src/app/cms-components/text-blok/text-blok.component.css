@@ -15,10 +15,10 @@
 }
 
 :host(.text-blok--style-strapline) {
-    --_color: var(--color-secondary);
-    --_font-size: 2rem;
-    --_line-height: 1.1em;
-    --_font-weight: 700;
+    --_color: var(--color-light);
+    --_font-size: 1.8rem;
+    --_line-height: 1.2em;
+    --_font-weight: 600;
 }
 
 :host(.text-blok--style-title) {
@@ -58,7 +58,6 @@
 
 
 :host(.text-blok--style-headline) .text-blok__text,
-:host(.text-blok--style-strapline) .text-blok__text,
 :host(.text-blok--style-title) .text-blok__text {
     background-image: -webkit-radial-gradient(top right, var(--color-primary) 0%, var(--color-secondary) 100%);
     -webkit-background-clip: text;

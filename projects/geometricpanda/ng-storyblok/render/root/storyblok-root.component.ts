@@ -2,8 +2,10 @@ import { isPlatformBrowser } from '@angular/common';
 import { Component, PLATFORM_ID, computed, effect, inject, input, signal } from '@angular/core';
 import {
     NG_STORYBLOK_BRIDGE,
+    NG_STORYBLOK_CONTEXT,
     NG_STORYBLOK_RESOLVE_LINKS,
     NG_STORYBLOK_RESOLVE_RELATIONS,
+    NG_STORYBLOK_ROOT,
 } from '@geometricpanda/ng-storyblok/tokens';
 import { ISbStory, useStoryblokBridge } from '@storyblok/js';
 import { ISbStoryData } from 'storyblok-js-client/src/interfaces';
@@ -14,6 +16,19 @@ import { StoryblokContentDirective } from '../render';
     templateUrl: './storyblok-root.component.html',
     standalone: true,
     imports: [StoryblokContentDirective],
+    providers: [
+        {
+            provide: NG_STORYBLOK_ROOT,
+            useExisting: StoryblokRootComponent,
+        },
+        {
+            provide: NG_STORYBLOK_CONTEXT,
+            useFactory: () => {
+                const root = inject<StoryblokRootComponent>(NG_STORYBLOK_ROOT);
+                return root.computedStory;
+            },
+        },
+    ],
 })
 export class StoryblokRootComponent {
     PLATFORM_ID = inject(PLATFORM_ID);

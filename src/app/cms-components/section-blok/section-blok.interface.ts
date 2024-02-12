@@ -5,4 +5,5 @@ export type SectionBlok = StoryblokNested<{
     paddingTop: 'sm' | 'md' | 'lg' | 'xl' | 'none';
     paddingBottom: 'sm' | 'md' | 'lg' | 'xl' | 'none';
     gap: boolean;
+    maxWidth?: 'single' | 'double';
 }>;

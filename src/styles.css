@@ -8,16 +8,25 @@
     src: url(https://fonts.gstatic.com/s/intertight/v7/NGSwv5HMAFg6IuGlBNMjxLsH8ahuQ2e8.woff2) format('woff2-variations');
 }
 
+@font-face {
+    font-family: 'Fira Code';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/firacode/v22/uU9NCBsR6Z2vfE9aq3bh3dSDqFGedA.woff2) format('woff2');
+}
 
 :root {
     --font-family: 'Inter Tight', sans-serif;
+    --font-family-mono: 'Fira Code', courier;
     --color-surface: #2A202A;
     --color-light: #FFF;
+    --color-code-bg: #33263f;
     --color-dark: #413152;
     --color-primary: #a18cd1;
+    --color-secondary: #F9DEE9;
     --color-vibrant: #d53a9d;
     --color-dim: #743ad5;
-    --color-secondary: #F9DEE9;
     --color-secondary-10: rgb(249 222 233 / .1);
     --color-secondary-20: rgb(249 222 233 / .2);
     --color-secondary-50: rgb(249 222 233 / .5);
@@ -31,4 +40,17 @@ body {
     font-family: var(--font-family);
     background-color: var(--color-surface);
     color: var(--color-secondary);
+}
+
+
+@keyframes animateGradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
 }

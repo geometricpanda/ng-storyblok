@@ -1,0 +1,92 @@
+@import 'highlight.js/styles/monokai-sublime.css';
+
+.code-blok__header {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    line-height: 1.5em;
+    border: 2px solid var(--color-light);
+    border-bottom: 0;
+    border-image-source: radial-gradient(circle at top left, var(--color-vibrant), var(--color-dim));
+    border-image-slice: 1;
+}
+
+.code-blok__language {
+    background-color: var(--color-secondary-10);
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-left: auto;
+}
+
+.code-blok__title {
+    font-weight: 600;
+    color: var(--color-light);
+    background-color: var(--color-secondary-10);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.code-blok__header + .code-blok__outer {
+    border-top-width: 1px;
+}
+
+.code-blok__outer {
+    display: grid;
+    font-family: var(--font-family-mono);
+    background-color: var(--color-code-bg);
+    border: 2px solid var(--color-light);
+    border-image-source: radial-gradient(circle at top left, var(--color-vibrant), var(--color-dim));
+    border-image-slice: 1;
+    max-width: 100%;
+}
+
+.code-blok__inner {
+    display: grid;
+
+    overflow: scroll;
+
+}
+
+.code-blok__code {
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.5em;
+    margin: 0;
+    padding: 16px;
+    width: 100%;
+}
+
+.code-blok__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.code-blok__button {
+    font-size: 0.875rem;
+    line-height: 1.5em;
+    border: 2px solid var(--color-vibrant);
+    font-family: var(--font-family-mono);
+    padding: 7px 24px 8px;
+    border-top: 0;
+    border-image-source: radial-gradient(circle at bottom left, var(--color-vibrant), var(--color-dim));
+    border-image-slice: 1;
+    background-color: var(--color-code-bg);
+    color: #FFF;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 300ms linear;
+}
+
+.code-blok__button:hover,
+.code-blok__button:focus-visible {
+    background-color: var(--color-secondary-10);
+}
+
+.code-blok__button:focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: -7px;
+}

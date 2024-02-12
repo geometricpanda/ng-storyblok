@@ -10,7 +10,8 @@
             }
         </section>
     }
-    <div class="page__body">
+    <div class="page__body"
+         [class.page__body--with-aside]="blok().content.aside.length > 0">
         <main class="page__main">
             @for (child of blok().content.main; track child._uid) {
                 <ng-container [storyblokBlok]="child" />

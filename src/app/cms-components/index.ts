@@ -11,4 +11,7 @@ export const enum BLOK {
     ICON = 'icon',
     SEPARATOR = 'separator',
     SECTION = 'section',
+    STICKY = 'sticky',
+    CODE = 'code',
+    IN_THIS_PAGE = 'in-this-page',
 }

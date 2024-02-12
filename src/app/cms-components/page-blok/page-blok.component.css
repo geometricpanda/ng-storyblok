@@ -1,8 +1,8 @@
 .page {
     margin: auto;
-    padding-inline: 16px;
     display: flex;
     flex-direction: column;
+    padding-inline: 16px;
 }
 
 .page--layout-single {
@@ -13,27 +13,36 @@
     max-width: 1200px;
 }
 
-.page__body {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-}
-
-@media (min-width: 48em) {
-    .page__body {
-        flex-direction: row;
-    }
-}
 
 .page__before {
 }
 
+.page__body {
+    display: grid;
+    column-gap: 48px;
+    grid-template-areas: "aside" "main";
+}
+
+@media (min-width: 48em) {
+    .page__body--with-aside {
+        display: grid;
+        grid-template-areas: "main aside";
+        grid-template-columns: 2.5fr 1fr;
+    }
+}
+
+@media (min-width: 64em) {
+    .page__body--with-aside {
+        grid-template-columns: 3fr 1fr;
+    }
+}
+
 .page__main {
-    flex-grow: 1;
+    grid-area: main;
 }
 
 .page__aside {
-    width: 500px;
+    grid-area: aside;
 }
 
 .page__after {

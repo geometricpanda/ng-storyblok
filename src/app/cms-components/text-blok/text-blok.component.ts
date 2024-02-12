@@ -1,6 +1,7 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { StoryblokBlok } from '@geometricpanda/ng-storyblok';
 import { StoryblokBlokDirective } from '@geometricpanda/ng-storyblok/render';
+import slugify from 'slugify';
 import { TextBlok } from './text-blok.interface';
 
 @Component({
@@ -9,7 +10,7 @@ import { TextBlok } from './text-blok.interface';
     styleUrl: './text-blok.component.css',
     standalone: true,
     imports: [StoryblokBlokDirective],
-    host:{
+    host: {
         '[class.text-blok]': 'true',
         '[class.text-blok--style-headline]': 'blok().style === "headline"',
         '[class.text-blok--style-strapline]': 'blok().style === "strapline"',
@@ -18,11 +19,13 @@ import { TextBlok } from './text-blok.interface';
         '[class.text-blok--style-lead]': 'blok().style === "lead"',
         '[class.text-blok--style-paragraph]': 'blok().style === "paragraph"',
         '[class.text-blok--style-small]': 'blok().style === "small"',
-
-    }
+    },
 })
 export class TextBlokComponent implements StoryblokBlok<TextBlok> {
-
     blok = input.required<TextBlok>();
 
+    slug = computed(() => {
+        const blok = this.blok();
+        return slugify(blok.content, { lower: true });
+    });
 }

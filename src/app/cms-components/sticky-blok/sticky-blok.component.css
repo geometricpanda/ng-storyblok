@@ -1,0 +1,8 @@
+@media (min-width: 48em) {
+    :host {
+        position: sticky;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+}

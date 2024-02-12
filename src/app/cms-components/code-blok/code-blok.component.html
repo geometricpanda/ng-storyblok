@@ -1,0 +1,33 @@
+@if (blok().code.language || blok().code.title) {
+    <div class="code-blok__header">
+        @if (blok().code.title) {
+            <div class="code-blok__title">
+                {{ blok().code.title }}
+            </div>
+        }
+        @if (blok().code.language) {
+            <div class="code-blok__language">
+                {{ blok().code.language }}
+            </div>
+        }
+    </div>
+}
+<div class="code-blok__outer">
+
+    <div class="code-blok__inner">
+    <pre
+        class="code-blok__code hljs"
+        [innerHTML]="code()"
+    ></pre>
+    </div>
+
+</div>
+
+<div class="code-blok__footer">
+    <button
+        class="code-blok__button"
+        (click)="copy()"
+    >
+        Copy
+    </button>
+</div>

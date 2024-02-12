@@ -8,5 +8,6 @@ export * from './resolve-links.token';
 export * from './resolve-relations.token';
 export * from './slug-rewrite.token';
 export * from './storyblok-client.token';
+export * from './storyblok-context.token';
 export * from './storyblok-preview.token';
 export * from './title-template.token';

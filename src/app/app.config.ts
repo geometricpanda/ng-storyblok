@@ -1,6 +1,11 @@
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter, withComponentInputBinding, withEnabledBlockingInitialNavigation } from '@angular/router';
+import {
+    provideRouter,
+    withComponentInputBinding,
+    withEnabledBlockingInitialNavigation,
+    withInMemoryScrolling,
+} from '@angular/router';
 
 import {
     provideNgStoryblok,
@@ -44,7 +49,12 @@ export const appConfig: ApplicationConfig = {
         provideClientHydration(),
         provideHttpClient(withFetch()),
         provideAnimationsAsync(),
-        provideRouter(appRoutes, withEnabledBlockingInitialNavigation(), withComponentInputBinding()),
+        provideRouter(
+            appRoutes,
+            withEnabledBlockingInitialNavigation(),
+            withComponentInputBinding(),
+            withInMemoryScrolling({ anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled' }),
+        ),
         provideIcons({
             remixDatabase2Line,
             remixBracesLine,
@@ -84,6 +94,9 @@ export const appConfig: ApplicationConfig = {
                 [BLOK.ICON]: () => import('./cms-components/icon-blok'),
                 [BLOK.SECTION]: () => import('./cms-components/section-blok'),
                 [BLOK.SEPARATOR]: () => import('./cms-components/separator-blok'),
+                [BLOK.STICKY]: () => import('./cms-components/sticky-blok'),
+                [BLOK.CODE]: () => import('./cms-components/code-blok'),
+                [BLOK.IN_THIS_PAGE]: () => import('./cms-components/in-this-page-blok'),
             }),
         ),
     ],
