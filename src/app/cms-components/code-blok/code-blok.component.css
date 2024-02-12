@@ -90,6 +90,12 @@
     display: flex;
     justify-content: flex-end;
     gap: 16px;
+    position: relative;
+    z-index: -1;
+}
+
+.code-blok__footer:has(*:focus-visible) {
+    z-index: unset;
 }
 
 .code-blok__button {
@@ -97,8 +103,8 @@
     line-height: 1em;
     border: 2px solid var(--color-vibrant);
     font-family: var(--font-family-mono);
-    padding: 12px 24px 8px;
-    border-top: 0;
+    padding: 12px 24px;
+    margin-top: -2px;
     border-image-source: radial-gradient(circle at bottom left, var(--color-vibrant), var(--color-dim));
     border-image-slice: 1;
     background-color: var(--color-code-bg);
@@ -116,14 +122,14 @@
 
 .code-blok__button:focus-visible {
     outline: 2px solid var(--color-secondary);
-    outline-offset: -8px;
+    outline-offset: 2px;
 }
 
 .code-blok__copied {
     font-family: var(--font-family-mono);
     font-size: 0.875rem;
     line-height: 1em;
-    padding: 12px 0 8px;
+    padding: 12px 0;
     text-transform: uppercase;
 }
 
