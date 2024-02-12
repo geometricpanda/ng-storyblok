@@ -26,6 +26,9 @@ export class TextBlokComponent implements StoryblokBlok<TextBlok> {
 
     slug = computed(() => {
         const blok = this.blok();
+        if (!blok.inThisPage) {
+            return null;
+        }
         return slugify(blok.content, { lower: true });
     });
 }

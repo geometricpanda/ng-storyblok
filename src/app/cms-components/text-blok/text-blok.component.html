@@ -1,16 +1,16 @@
 @switch (blok().element) {
     @case ('h1') {
-        <h1 class="text-blok__text" [id]="slug()">
+        <h1 class="text-blok__text" [attr.id]="slug()">
             {{ blok().content }}
         </h1>
     }
     @case ('h2') {
-        <h2 class="text-blok__text" [id]="slug()">
+        <h2 class="text-blok__text" [attr.id]="slug()">
             {{ blok().content }}
         </h2>
     }
     @case ('h3') {
-        <h3 class="text-blok__text" [id]="slug()">
+        <h3 class="text-blok__text" [attr.id]="slug()">
             {{ blok().content }}
         </h3>
     }
