@@ -17,6 +17,7 @@ import {
     withPreview,
     withResolveLinks,
     withResolveRelations,
+    withSlugRewrite,
     withTitleTemplate,
 } from '@geometricpanda/ng-storyblok/config';
 
@@ -41,7 +42,6 @@ import {
 
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { withSlugRewrite } from '../../projects/geometricpanda/ng-storyblok/config/with-slug-rewrite.config';
 import { appRoutes } from './app.routes';
 import { BLOK } from './cms-components';
 

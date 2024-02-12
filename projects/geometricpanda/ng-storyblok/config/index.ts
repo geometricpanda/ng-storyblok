@@ -9,4 +9,5 @@ export * from './with-oauth-token.config';
 export * from './with-preview.config';
 export * from './with-resolve-links.config';
 export * from './with-resolve-relations.config';
+export * from './with-slug-rewrite.config';
 export * from './with-title-template.config';
