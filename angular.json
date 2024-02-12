@@ -20,7 +20,8 @@
                         "tsConfig": "tsconfig.app.json",
                         "assets": ["src/favicon.ico", "src/assets"],
                         "styles": ["src/styles.css"],
-                        "scripts": []
+                        "scripts": [],
+                        "allowedCommonJsDependencies": ["slugify"]
                     },
                     "configurations": {
                         "production": {
@@ -134,7 +135,7 @@
                 "prerender": {
                     "builder": "@angular-devkit/build-angular:prerender",
                     "options": {
-                        "routes": ["/"]
+                        "routesFile": "./routesfile.txt"
                     },
                     "configurations": {
                         "production": {
