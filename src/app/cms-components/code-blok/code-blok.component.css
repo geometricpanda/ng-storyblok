@@ -80,10 +80,8 @@
     font-size: 14px;
     line-height: 1.5em;
     font-weight: 400;
-}
-
-.code-blok__code * {
-
+    position: relative;
+    z-index: 1;
 }
 
 .code-blok__footer {
@@ -91,11 +89,10 @@
     justify-content: flex-end;
     gap: 16px;
     position: relative;
-    z-index: -1;
 }
 
 .code-blok__footer:has(*:focus-visible) {
-    z-index: unset;
+    z-index: 2;
 }
 
 .code-blok__button {
