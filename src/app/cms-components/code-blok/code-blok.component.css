@@ -1,4 +1,17 @@
-@import 'highlight.js/styles/monokai-sublime.css';
+.code-blok {
+    --_gradient-start: var(--color-vibrant);
+    --_gradient-end: var(--color-dim);
+}
+
+.code-blok--language-ts {
+    --_gradient-start: #9ed2ff;
+    --_gradient-end: #2e79c7;
+}
+
+.code-blok--language-html {
+    --_gradient-start: #ff8d6d;
+    --_gradient-end: #e53d00;
+}
 
 .code-blok__header {
     padding: 8px;
@@ -9,7 +22,7 @@
     line-height: 1.5em;
     border: 2px solid var(--color-light);
     border-bottom: 0;
-    border-image-source: radial-gradient(circle at top left, var(--color-vibrant), var(--color-dim));
+    border-image-source: radial-gradient(circle at top left, var(--_gradient-start), var(--_gradient-end));
     border-image-slice: 1;
 }
 
@@ -39,7 +52,7 @@
     display: grid;
     background-color: var(--color-code-bg);
     border: 2px solid var(--color-light);
-    border-image-source: radial-gradient(circle at top left, var(--color-vibrant), var(--color-dim));
+    border-image-source: radial-gradient(circle at top left, var(--_gradient-start), var(--_gradient-end));
     border-image-slice: 1;
     max-width: 100%;
 }
@@ -62,7 +75,6 @@
     box-shadow: inset 0 0 0 6px var(--color-code-bg);
     border-radius: 8px;
     background: var(--color-vibrant);
-
 }
 
 .code-blok__inner::-webkit-scrollbar-thumb:hover {
@@ -102,10 +114,10 @@
     font-family: var(--font-family-mono);
     padding: 12px 24px;
     margin-top: -2px;
-    border-image-source: radial-gradient(circle at bottom left, var(--color-vibrant), var(--color-dim));
+    border-image-source: radial-gradient(circle at bottom left, var(--_gradient-start), var(--_gradient-end));
     border-image-slice: 1;
     background-color: var(--color-code-bg);
-    color: #FFF;
+    color: #fff;
     cursor: pointer;
     font-weight: 400;
     transition: background-color 300ms linear;

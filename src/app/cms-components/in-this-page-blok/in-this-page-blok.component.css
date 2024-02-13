@@ -4,7 +4,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 2px;
+    gap: 4px;
 }
 
 .in-this-page__item {
@@ -13,7 +13,7 @@
     padding: 0;
     margin: 0;
     background: var(--color-code-bg);
-
+    border-left: 2px solid var(--color-secondary);
 }
 
 .in-this-page__link {
@@ -24,7 +24,7 @@
     gap: 4px;
     font-size: 1rem;
     line-height: 1.3em;
-    padding: 8px;
+    padding: 12px;
     border: 0;
     text-decoration: none;
     font-weight: 500;
@@ -37,7 +37,7 @@ ng-icon.in-this-page__link-icon {
     margin-top: 2px;
 }
 
-.in-this-page__link:hover{
+.in-this-page__link:hover {
     text-decoration: underline;
 }
 

@@ -1,50 +1,60 @@
-@if (blok().code.language || blok().code.title) {
-    <div class="code-blok__header">
-        @if (blok().code.title) {
-            <div class="code-blok__title">
-                {{ blok().code.title }}
-            </div>
-        }
-        @if (blok().code.language) {
-            <div class="code-blok__language">
-                {{ blok().code.language }}
-            </div>
-        }
-    </div>
-}
-<div class="code-blok__outer">
-    <div class="code-blok__inner">
-        <pre
-            class="code-blok__code hljs"
-            [innerHTML]="code()"
-        ></pre>
-    </div>
-</div>
-
-<div class="code-blok__footer">
-    @switch (copied()) {
-        @case (COPIED_STATE.COPIED) {
-            <span
-                class="code-blok__copied"
-                @fade
-            >
-                copied!
-            </span>
-        }
-        @case (COPIED_STATE.ERROR) {
-            <span
-                class="code-blok__copied code-blok__copied--error"
-                @fade
-            >
-                error copying
-            </span>
-        }
+<div
+    class="code-blok"
+    [class.code-blok--language-ts]="blok().code.language === 'ts'"
+    [class.code-blok--language-html]="blok().code.language === 'html'"
+    [class.code-blok--language-css]="blok().code.language === 'css'"
+    [class.code-blok--language-sh]="blok().code.language === 'sh'"
+    [class.code-blok--language-json]="blok().code.language === 'json'"
+>
+    @if (blok().code.language || blok().code.title) {
+        <div class="code-blok__header">
+            @if (blok().code.title) {
+                <div class="code-blok__title">
+                    {{ blok().code.title }}
+                </div>
+            }
+            @if (blok().code.language) {
+                <div class="code-blok__language">
+                    {{ blok().code.language }}
+                </div>
+            }
+        </div>
     }
 
-    <button
-        class="code-blok__button"
-        (click)="copy()"
-    >
-        Copy
-    </button>
+    <div class="code-blok__outer">
+        <div class="code-blok__inner">
+            <pre
+                class="code-blok__code hljs"
+                [innerHTML]="code()"
+            ></pre>
+        </div>
+    </div>
+
+    <div class="code-blok__footer">
+        @switch (copied()) {
+            @case (COPIED_STATE.COPIED) {
+                <span
+                    class="code-blok__copied"
+                    @fade
+                >
+                    copied!
+                </span>
+            }
+            @case (COPIED_STATE.ERROR) {
+                <span
+                    class="code-blok__copied code-blok__copied--error"
+                    @fade
+                >
+                    error copying
+                </span>
+            }
+        }
+
+        <button
+            class="code-blok__button"
+            (click)="copy()"
+        >
+            Copy
+        </button>
+    </div>
 </div>

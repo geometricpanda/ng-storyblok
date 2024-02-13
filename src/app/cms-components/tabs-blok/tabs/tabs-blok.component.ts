@@ -1,5 +1,15 @@
 import { FocusableOption, FocusKeyManager } from '@angular/cdk/a11y';
-import { afterNextRender, Component, effect, input, QueryList, signal, ViewChildren } from '@angular/core';
+import {
+    afterNextRender,
+    ChangeDetectorRef,
+    Component,
+    effect,
+    inject,
+    input,
+    QueryList,
+    signal,
+    ViewChildren,
+} from '@angular/core';
 import { StoryblokBlok } from '@geometricpanda/ng-storyblok';
 import { StoryblokBlokDirective } from '@geometricpanda/ng-storyblok/render';
 import { TabBlokComponent } from '../tab';
@@ -14,6 +24,8 @@ import { TabsBlok } from './tabs-blok.interface';
     imports: [TabBlokComponent, StoryblokBlokDirective, TabButtonDirective],
 })
 export class TabsBlokComponent implements StoryblokBlok<TabsBlok> {
+    cdRef = inject(ChangeDetectorRef);
+
     @ViewChildren(TabButtonDirective)
     buttonElements?: QueryList<TabButtonDirective>;
 
@@ -40,6 +52,7 @@ export class TabsBlokComponent implements StoryblokBlok<TabsBlok> {
             this.fkm = new FocusKeyManager(this.buttonElements!);
             this.fkm.updateActiveItem(0);
             this.fkm.withHorizontalOrientation('ltr');
+            this.cdRef.detectChanges();
         });
     }
 

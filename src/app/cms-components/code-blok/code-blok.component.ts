@@ -5,6 +5,7 @@ import hljs from 'highlight.js/lib/core';
 
 import bash from 'highlight.js/lib/languages/bash';
 import css from 'highlight.js/lib/languages/css';
+import json from 'highlight.js/lib/languages/json';
 import typescript from 'highlight.js/lib/languages/typescript';
 import xml from 'highlight.js/lib/languages/xml';
 
@@ -18,6 +19,7 @@ hljs.registerLanguage('ts', typescript);
 hljs.registerLanguage('sh', bash);
 hljs.registerLanguage('css', css);
 hljs.registerLanguage('html', xml);
+hljs.registerLanguage('json', json);
 
 enum COPIED_STATE {
     HIDE = 'HIDE',
@@ -28,7 +30,7 @@ enum COPIED_STATE {
 @Component({
     selector: 'app-code-blok',
     templateUrl: './code-blok.component.html',
-    styleUrl: './code-blok.component.css',
+    styleUrls: ['../../../../node_modules/highlight.js/styles/monokai-sublime.css', './code-blok.component.css'],
     encapsulation: ViewEncapsulation.None,
     standalone: true,
     animations: [
