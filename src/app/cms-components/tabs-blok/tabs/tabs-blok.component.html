@@ -1,18 +1,21 @@
 <div class="tabs">
     <div class="tabs__controls">
-        <div class="tabs__controls-inner" role="tablist">
-            @for (tab of blok().children; track blok()._uid) {
+        <div
+            class="tabs__controls-inner"
+            role="tablist"
+        >
+            @for (tab of blok().children; track blok()._uid; let i = $index) {
                 <button
-                    appTabButton
                     class="tabs__control"
-                    role="tab"
-                    [id]="'tab-control'+ tab._uid"
+                    [id]="'tab-control' + tab._uid"
                     [attr.aria-selected]="tab._uid === activeTabId()"
-                    [attr.aria-controls]="'tab-panel'+ tab._uid"
-                    [attr.tabindex]="tab._uid === activeTabId() ? null : -1"
-                    (click)="setActiveTab(tab._uid!)"
+                    [attr.aria-controls]="'tab-panel' + tab._uid"
+                    [attr.tabindex]="fkm?.activeItemIndex === i ? null : -1"
+                    (click)="setActiveTab(tab._uid!, i)"
                     (keydown)="fkm!.onKeydown($event)"
-
+                    (focus)="syncFocus(i)"
+                    appTabButton
+                    role="tab"
                 >
                     {{ tab.title }}
                 </button>
@@ -24,10 +27,10 @@
         @for (tab of blok().children; track blok()._uid) {
             <div
                 class="tabs__tab"
-                role="tabpanel"
-                [id]="'tab-panel'+ tab._uid"
-                [attr.aria-labelledby]="'tab-control'+ tab._uid"
+                [id]="'tab-panel' + tab._uid"
+                [attr.aria-labelledby]="'tab-control' + tab._uid"
                 [class.tabs__tab--active]="tab._uid === activeTabId()"
+                role="tabpanel"
             >
                 <ng-container [storyblokBlok]="tab" />
             </div>

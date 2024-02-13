@@ -1,48 +1,47 @@
 .tabs {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
 }
 
 .tabs__controls {
     display: flex;
-    max-width: min-content;
     margin: auto;
-    padding: 2px;
-    background: linear-gradient(to bottom right, var(--color-dim), var(--color-vibrant));
-    background-size: 300% 300%;
-    animation: animateGradient 4000ms linear infinite;
+    width: 100%;
 }
 
 .tabs__controls-inner {
     display: flex;
-    gap: 2px;
+    gap: 4px;
     justify-content: center;
     background-color: var(--color-surface);
-    padding: 2px;
+    flex-grow: 1;
 }
 
 .tabs__control {
-    display: block;
-    padding: 8px 14px;
+    flex-grow: 1;
+    padding: 8px 12px;
     border: 0;
-    margin: 2px;
+    margin-bottom: 2px;
     color: var(--color-secondary);
-    background-color: transparent;
+    background: transparent;
     font-family: var(--font-family);
     font-weight: 600;
     cursor: pointer;
     transition-property: color, background-color;
-    transition-duration: 300ms;
+    transition-duration: 150ms;
     transition-timing-function: linear;
+    text-align: center;
 }
 
-.tabs__control[aria-selected="true"] {
-    margin: 0;
+.tabs__control[aria-selected='true'] {
+    margin-bottom: 0;
     background: var(--color-secondary-10);
     color: var(--color-light);
-    text-decoration: underline;
-    border: 2px solid transparent;
+    border-bottom: 2px solid var(--color-light);
+    border-image-source: radial-gradient(circle at left, var(--color-vibrant), var(--color-dim));
+    border-image-slice: 1;
+    scale: 1;
 }
 
 .tabs__control:hover {
@@ -61,4 +60,14 @@
 
 .tabs__tab--active {
     display: block;
+}
+
+@media (min-width: 768px) {
+    .tabs {
+        gap: 16px;
+    }
+    .tabs__control {
+        flex-grow: 0;
+        padding-inline: 16px;
+    }
 }

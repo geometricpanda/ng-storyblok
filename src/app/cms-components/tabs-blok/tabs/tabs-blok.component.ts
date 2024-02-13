@@ -43,9 +43,12 @@ export class TabsBlokComponent implements StoryblokBlok<TabsBlok> {
         });
     }
 
-    initializeFocusManager() {}
+    syncFocus(index: number) {
+        this.fkm?.updateActiveItem(index);
+    }
 
-    setActiveTab(tab: string) {
+    setActiveTab(tab: string, index: number) {
         this.activeTabId.set(tab);
+        this.fkm?.updateActiveItem(index);
     }
 }

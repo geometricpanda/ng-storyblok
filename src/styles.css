@@ -1,11 +1,12 @@
-@import "modern-css-reset/dist/reset.css";
+@import 'modern-css-reset/dist/reset.css';
 
 @font-face {
     font-family: 'Inter Tight';
     font-style: normal;
     font-weight: 300 900;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/intertight/v7/NGSwv5HMAFg6IuGlBNMjxLsH8ahuQ2e8.woff2) format('woff2-variations');
+    src: url(https://fonts.gstatic.com/s/intertight/v7/NGSwv5HMAFg6IuGlBNMjxLsH8ahuQ2e8.woff2)
+        format('woff2-variations');
 }
 
 @font-face {
@@ -19,21 +20,22 @@
 :root {
     --font-family: 'Inter Tight', sans-serif;
     --font-family-mono: 'Fira Code', courier;
-    --color-surface: #2A202A;
-    --color-light: #FFF;
+    --color-surface: #2a202a;
+    --color-light: #fff;
     --color-code-bg: #33263f;
     --color-dark: #413152;
     --color-primary: #a18cd1;
-    --color-secondary: #F9DEE9;
+    --color-secondary: #f9dee9;
     --color-vibrant: #d53a9d;
     --color-dim: #743ad5;
-    --color-secondary-10: rgb(249 222 233 / .1);
-    --color-secondary-20: rgb(249 222 233 / .2);
-    --color-secondary-50: rgb(249 222 233 / .5);
-    --color-info: #4FC3F7;
-    --color-success: #81C784;
-    --color-warning: #FFD54F;
-    --color-error: #E57373;
+    --color-secondary-05: rgb(249 222 233 / 0.05);
+    --color-secondary-10: rgb(249 222 233 / 0.1);
+    --color-secondary-20: rgb(249 222 233 / 0.2);
+    --color-secondary-50: rgb(249 222 233 / 0.5);
+    --color-info: #4fc3f7;
+    --color-success: #81c784;
+    --color-warning: #ffd54f;
+    --color-error: #e57373;
 }
 
 body {
@@ -53,7 +55,6 @@ body {
     white-space: nowrap;
     border-width: 0;
 }
-
 
 @keyframes animateGradient {
     0% {
