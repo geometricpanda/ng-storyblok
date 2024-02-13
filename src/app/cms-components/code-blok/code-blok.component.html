@@ -13,33 +13,32 @@
     </div>
 }
 <div class="code-blok__outer">
-
     <div class="code-blok__inner">
-    <pre
-        class="code-blok__code hljs"
-        [innerHTML]="code()"
-    ></pre>
+        <pre
+            class="code-blok__code hljs"
+            [innerHTML]="code()"
+        ></pre>
     </div>
-
 </div>
 
 <div class="code-blok__footer">
-    @if (copied()) {
-        <span
-            @fade
-            class="code-blok__copied"
-        >
-            copied
-        </span>
-    }
-
-    @if (copiedError()) {
-        <span
-            @fade
-            class="code-blok__copied code-blok__copied--error"
-        >
-            error copying
-        </span>
+    @switch (copied()) {
+        @case (COPIED_STATE.COPIED) {
+            <span
+                class="code-blok__copied"
+                @fade
+            >
+                copied!
+            </span>
+        }
+        @case (COPIED_STATE.ERROR) {
+            <span
+                class="code-blok__copied code-blok__copied--error"
+                @fade
+            >
+                error copying
+            </span>
+        }
     }
 
     <button

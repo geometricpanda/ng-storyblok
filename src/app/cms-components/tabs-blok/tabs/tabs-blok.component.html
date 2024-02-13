@@ -10,7 +10,7 @@
                     [id]="'tab-control' + tab._uid"
                     [attr.aria-selected]="tab._uid === activeTabId()"
                     [attr.aria-controls]="'tab-panel' + tab._uid"
-                    [attr.tabindex]="fkm?.activeItemIndex === i ? null : -1"
+                    [attr.tabindex]="fkm?.activeItemIndex !== i ? -1 : null"
                     (click)="setActiveTab(tab._uid!, i)"
                     (keydown)="fkm!.onKeydown($event)"
                     (focus)="syncFocus(i)"
