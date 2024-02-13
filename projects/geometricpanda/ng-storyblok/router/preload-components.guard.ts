@@ -1,15 +1,6 @@
 import { inject } from '@angular/core';
 import { CanActivateFn } from '@angular/router';
-import { Storyblok } from '@geometricpanda/ng-storyblok/services';
-import {
-    NG_STORYBLOK_FALLBACK_LOADER,
-    NG_STORYBLOK_LOADERS,
-    NG_STORYBLOK_PREVIEW,
-    NG_STORYBLOK_RESOLVE_LINKS,
-    NG_STORYBLOK_RESOLVE_RELATIONS,
-    NG_STORYBLOK_SLUG_REWRITE,
-} from '@geometricpanda/ng-storyblok/tokens';
-import { firstValueFrom } from 'rxjs';
+import { NG_STORYBLOK_FALLBACK_LOADER, NG_STORYBLOK_LOADERS } from '@geometricpanda/ng-storyblok/tokens';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getComponentNames = (acc: Set<string>, block: any): Set<string> => {
@@ -22,6 +13,11 @@ const getComponentNames = (acc: Set<string>, block: any): Set<string> => {
     }
 
     if (typeof block === 'object') {
+        // If it's a storyblok link to another document
+        if (block['linktype'] && block['uuid']) {
+            return acc;
+        }
+
         if (block.component) {
             acc.add(block.component);
         }
@@ -33,27 +29,10 @@ const getComponentNames = (acc: Set<string>, block: any): Set<string> => {
 };
 
 export const preloadComponentsGuard: CanActivateFn = async (route) => {
-    const storyblok = inject(Storyblok);
     const blockLoaders = inject(NG_STORYBLOK_LOADERS);
     const fallbackLoader = inject(NG_STORYBLOK_FALLBACK_LOADER);
-    const slugRewrite = inject(NG_STORYBLOK_SLUG_REWRITE, { optional: true });
-    const preview = inject(NG_STORYBLOK_PREVIEW, { optional: true });
-    const resolveLinks = inject(NG_STORYBLOK_RESOLVE_LINKS, { optional: true }) ?? undefined;
-    const resolveRelations = inject(NG_STORYBLOK_RESOLVE_RELATIONS, { optional: true }) ?? undefined;
 
-    const slug = route.url.map(({ path }) => path).join('/');
-    const finalSlug = slugRewrite?.toStory(slug) || slug;
-
-    const previewMode = await preview?.preview();
-
-    const req = storyblok.getStory(finalSlug, {
-        ...previewMode,
-        resolve_links: resolveLinks,
-        resolve_relations: resolveRelations,
-    });
-
-    const storyData = (await firstValueFrom(req))!;
-
+    const storyData = route.data!['ɵNgStoryblokStoryData'];
     const { data } = storyData;
     const { story } = data;
     const { content } = story;
@@ -71,6 +50,11 @@ export const preloadComponentsGuard: CanActivateFn = async (route) => {
     });
 
     await Promise.all(loaders);
+
+    route.data = {
+        ...route.data,
+        ɵNgStoryblokComponents: components,
+    };
 
     return true;
 };

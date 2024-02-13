@@ -19,6 +19,11 @@ const getInThisPage = (acc: Set<string>, block: any): Set<string> => {
     }
 
     if (typeof block === 'object') {
+        // If it's a storyblok link to another document
+        if (block['linktype'] && block['uuid']) {
+            return acc;
+        }
+
         if (block.component === BLOK.TEXT) {
             const textBlok = <TextBlok>block;
             if (textBlok.inThisPage) {

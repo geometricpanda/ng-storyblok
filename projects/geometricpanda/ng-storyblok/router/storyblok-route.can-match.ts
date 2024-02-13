@@ -27,7 +27,13 @@ export const matchStoryblokRoute: CanMatchFn = async (route, segments) => {
             resolve_relations: resolveRelations,
         });
         return firstValueFrom(req)
-            .then((story) => !!story)
+            .then((story) => {
+                route.data = {
+                    ...route.data,
+                    ɵNgStoryblokStoryData: story,
+                };
+                return !!story;
+            })
             .catch(() => false);
     }
 
