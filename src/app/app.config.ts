@@ -9,11 +9,11 @@ import {
 
 import {
     provideNgStoryblok,
+    provideStoryblokLoader,
     withAccessToken,
     withBloks,
     withBridge,
     withCache,
-    withNgOptimizedImage,
     withPreview,
     withResolveLinks,
     withResolveRelations,
@@ -77,7 +77,6 @@ export const appConfig: ApplicationConfig = {
             withPreview(),
             withBridge(),
             withCache(),
-            withNgOptimizedImage(),
             withResolveLinks('story'),
             withResolveRelations(['image.link']),
             withTitleTemplate('{{name}} • ngStoryblok'),
@@ -103,5 +102,6 @@ export const appConfig: ApplicationConfig = {
                 [BLOK.TABS]: () => import('./cms-components/tabs-blok').then((m) => m.TabsBlokComponent),
             }),
         ),
+        provideStoryblokLoader(),
     ],
 };
