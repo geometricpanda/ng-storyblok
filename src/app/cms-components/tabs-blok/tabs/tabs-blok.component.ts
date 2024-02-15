@@ -37,7 +37,6 @@ export class TabsBlokComponent implements StoryblokBlok<TabsBlok> {
     constructor() {
         effect(() => {
             const buttonElements = this.buttonElements();
-            console.log('buttonElements', buttonElements);
             this.fkm = new FocusKeyManager(buttonElements as Array<TabButtonDirective>);
             this.fkm.updateActiveItem(0);
             this.fkm.withHorizontalOrientation('ltr');
