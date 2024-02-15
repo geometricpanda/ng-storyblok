@@ -10,9 +10,9 @@ import { StoryblokClientProvider } from './storyblok-client.provider';
  * @param features The features to provide.
  * @returns The providers for the Storyblok configuration.
  */
-export const provideNgStoryblok = (...features: Array<NgStoryblokFeatures>) =>
+export const provideNgStoryblok = (...features: Array<NgStoryblokFeatures | false>) =>
     makeEnvironmentProviders([
-        features.map((feature) => feature.ɵproviders),
+        features.filter(Boolean).map((feature) => feature && feature?.ɵproviders),
         StoryblokClientProvider,
         provideHttpClient(withInterceptors([storyblokInterceptor])),
     ]);

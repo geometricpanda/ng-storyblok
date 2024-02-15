@@ -25,7 +25,6 @@ export const StoryblokClientProvider: FactoryProvider = {
 
         if (!ACCESS_TOKEN && !OAUTH_TOKEN) {
             throw new Error(`ngStoryblok - NO_ACCESS_TOKEN
-
 No access token or OAuth token provided for the Storyblok API client,
 if this is intentional please provide ngStoryblok with
 "withAccessToken()" or "withOAuthToken()"`);
@@ -34,7 +33,7 @@ if this is intentional please provide ngStoryblok with
         const { storyblokApi } = storyblokInit({
             accessToken: ACCESS_TOKEN ?? undefined,
             use: [apiPlugin],
-            bridge: BRIDGE ?? undefined,
+            bridge: !!BRIDGE,
             apiOptions: {
                 oauthToken: OAUTH_TOKEN ?? undefined,
                 region: API_REGION ?? undefined,
@@ -43,9 +42,7 @@ if this is intentional please provide ngStoryblok with
         });
 
         if (!storyblokApi) {
-            throw new Error(`ngStoryblok - NO_API_CLIENT
-
-Storyblok API client failed to initialize`);
+            console.warn(`ngStoryblok - NO_API_CLIENT\nStoryblok API client failed to initialize`);
         }
 
         return storyblokApi;

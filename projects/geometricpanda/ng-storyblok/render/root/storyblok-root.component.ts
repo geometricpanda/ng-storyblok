@@ -1,13 +1,5 @@
-import { isPlatformBrowser } from '@angular/common';
-import { Component, PLATFORM_ID, computed, effect, inject, input, signal } from '@angular/core';
-import {
-    NG_STORYBLOK_BRIDGE,
-    NG_STORYBLOK_CONTEXT,
-    NG_STORYBLOK_RESOLVE_LINKS,
-    NG_STORYBLOK_RESOLVE_RELATIONS,
-    NG_STORYBLOK_ROOT,
-} from '@geometricpanda/ng-storyblok/tokens';
-import { ISbStory, useStoryblokBridge } from '@storyblok/js';
+import { Component, computed, inject, input } from '@angular/core';
+import { NG_STORYBLOK_BRIDGE, NG_STORYBLOK_CONTEXT } from '@geometricpanda/ng-storyblok/tokens';
 import { ISbStoryData } from 'storyblok-js-client/src/interfaces';
 import { StoryblokContentDirective } from '../render';
 
@@ -18,43 +10,21 @@ import { StoryblokContentDirective } from '../render';
     imports: [StoryblokContentDirective],
     providers: [
         {
-            provide: NG_STORYBLOK_ROOT,
-            useExisting: StoryblokRootComponent,
-        },
-        {
             provide: NG_STORYBLOK_CONTEXT,
-            useFactory: () => {
-                const root = inject<StoryblokRootComponent>(NG_STORYBLOK_ROOT);
-                return root.computedStory;
-            },
+            useFactory: () => inject(StoryblokRootComponent).storyData,
         },
     ],
 })
 export class StoryblokRootComponent {
-    PLATFORM_ID = inject(PLATFORM_ID);
     BRIDGE = inject(NG_STORYBLOK_BRIDGE, { optional: true });
-    RESOLVE_RELATIONS = inject(NG_STORYBLOK_RESOLVE_RELATIONS, { optional: true }) ?? undefined;
-    RESOLVE_LINKS = inject(NG_STORYBLOK_RESOLVE_LINKS, { optional: true }) ?? undefined;
 
-    story = input.required<ISbStory>();
-    bridgeStory = signal<ISbStoryData | undefined>(undefined);
+    story = input.required<ISbStoryData>();
+    storyData = computed(() => {
+        if (!this.BRIDGE) {
+            return this.story();
+        }
 
-    computedStory = computed<ISbStoryData>(() => {
-        const bridgeStory = this.bridgeStory();
-        const story = this.story();
-        return bridgeStory || story.data.story;
+        const bridge = this.BRIDGE(this.story);
+        return bridge();
     });
-
-    attachBridge = effect(
-        () => {
-            const story = this.story();
-            if (isPlatformBrowser(this.PLATFORM_ID) && this.BRIDGE) {
-                useStoryblokBridge(story.data.story.id, this.bridgeStory.set, {
-                    resolveRelations: this.RESOLVE_RELATIONS,
-                    resolveLinks: this.RESOLVE_LINKS,
-                });
-            }
-        },
-        { allowSignalWrites: true },
-    );
 }

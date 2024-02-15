@@ -19,9 +19,9 @@ export function withCache(): NgStoryblokCacheFeature {
     return createNgSbFeature(NgStoryblokFeatureKind.CacheFeature, [
         {
             provide: NG_STORYBLOK_CACHE,
-            useValue: {
+            useValue: <ISbCache>{
                 type: 'none',
-            } satisfies ISbCache,
+            },
         },
         {
             provide: NG_STORYBLOK_TRANSFER_CACHE,
