@@ -47,9 +47,7 @@ interface ProvideStoryblokLoaderProps {
  */
 export function provideStoryblokLoader(options?: ProvideStoryblokLoaderProps): Array<Provider> {
     const loaderFn = (config: ImageLoaderConfig) => {
-        const url = createStoryblokUrl(config, options);
-        console.log('image-url', url);
-        return url;
+        return createStoryblokUrl(config, options);
     };
 
     return [
