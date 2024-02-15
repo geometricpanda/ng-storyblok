@@ -6,7 +6,9 @@
         >
             @for (tab of blok().children; track blok()._uid; let i = $index) {
                 <button
+                    appTabButton
                     class="tabs__control"
+                    role="tab"
                     [id]="'tab-control' + tab._uid"
                     [attr.aria-selected]="tab._uid === activeTabId()"
                     [attr.aria-controls]="'tab-panel' + tab._uid"
@@ -14,8 +16,6 @@
                     (click)="setActiveTab(tab._uid!, i)"
                     (keydown)="fkm!.onKeydown($event)"
                     (focus)="syncFocus(i)"
-                    appTabButton
-                    role="tab"
                 >
                     {{ tab.title }}
                 </button>

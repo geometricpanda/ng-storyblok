@@ -14,17 +14,19 @@ export class RichtextComponent {
 
     content = input.required<ISbRichtext>();
 
-    onContent = effect(() => {
-        const content = this.content();
-        const textContent = renderRichText(content);
-        const safeContent = this.domSanitizer.sanitize(SecurityContext.HTML, textContent);
+    constructor() {
+        effect(() => {
+            const content = this.content();
+            const textContent = renderRichText(content);
+            const safeContent = this.domSanitizer.sanitize(SecurityContext.HTML, textContent);
 
-        if (this.elementRef.nativeElement.children.length) {
-            for (const child of this.elementRef.nativeElement.children) {
-                this.renderer.removeChild(this.elementRef.nativeElement, child);
+            if (this.elementRef.nativeElement.children.length) {
+                for (const child of this.elementRef.nativeElement.children) {
+                    this.renderer.removeChild(this.elementRef.nativeElement, child);
+                }
             }
-        }
 
-        this.renderer.setProperty(this.elementRef.nativeElement, 'innerHTML', safeContent);
-    });
+            this.renderer.setProperty(this.elementRef.nativeElement, 'innerHTML', safeContent);
+        });
+    }
 }
