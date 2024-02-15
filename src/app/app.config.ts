@@ -40,14 +40,12 @@ import {
     remixTimerFlashLine,
 } from '@ng-icons/remixicon';
 
-import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { appRoutes } from './app.routes';
 import { BLOK } from './cms-components';
 
 export const appConfig: ApplicationConfig = {
     providers: [
-        provideClientHydration(),
         provideHttpClient(withFetch()),
         provideAnimationsAsync(),
         provideRouter(
