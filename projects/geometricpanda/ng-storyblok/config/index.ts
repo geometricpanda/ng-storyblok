@@ -1,5 +1,5 @@
 export * from './provide-ng-storyblok.config';
-export * from './provide-storyblok-loader';
+export * from './provide-storyblok-loader.config';
 export * from './with-access-token.config';
 export * from './with-api-region.config';
 export * from './with-bloks.config';
