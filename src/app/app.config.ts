@@ -77,7 +77,7 @@ export const appConfig: ApplicationConfig = {
             withCache(),
             withResolveLinks('story'),
             withResolveRelations(['image.link']),
-            withTitleTemplate('{{name}} • ngStoryblok'),
+            withTitleTemplate('{{it.name}} • ngStoryblok'),
             withSlugRewrite(
                 (slug) => slug || 'home',
                 (slug) => (slug === 'home' ? '/' : slug),

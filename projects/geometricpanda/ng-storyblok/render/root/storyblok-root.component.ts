@@ -1,4 +1,4 @@
-import { Component, computed, inject, input } from '@angular/core';
+import { afterNextRender, ChangeDetectorRef, Component, computed, inject, input, signal } from '@angular/core';
 import { NG_STORYBLOK_BRIDGE, NG_STORYBLOK_CONTEXT } from '@geometricpanda/ng-storyblok/tokens';
 import { ISbStoryData } from 'storyblok-js-client/src/interfaces';
 import { StoryblokContentDirective } from '../render';
@@ -11,20 +11,30 @@ import { StoryblokContentDirective } from '../render';
     providers: [
         {
             provide: NG_STORYBLOK_CONTEXT,
-            useFactory: () => inject(StoryblokRootComponent).storyData,
+            useFactory: () => inject(StoryblokRootComponent).renderData,
         },
     ],
 })
 export class StoryblokRootComponent {
+    cdRef = inject(ChangeDetectorRef);
     BRIDGE = inject(NG_STORYBLOK_BRIDGE, { optional: true });
 
     story = input.required<ISbStoryData>();
-    storyData = computed(() => {
-        if (!this.BRIDGE) {
-            return this.story();
-        }
+    bridge = signal<undefined | ISbStoryData>(undefined);
 
-        const bridge = this.BRIDGE(this.story);
-        return bridge();
+    renderData = computed<ISbStoryData>(() => {
+        const story = this.story();
+        const bridge = this.bridge();
+        return bridge ?? story;
     });
+
+    constructor() {
+        afterNextRender(() => {
+            const story = this.story();
+            this.BRIDGE?.(story.id, (next) => {
+                this.bridge.set(next);
+                this.cdRef.detectChanges();
+            });
+        });
+    }
 }

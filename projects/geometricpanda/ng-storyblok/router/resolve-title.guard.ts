@@ -6,9 +6,10 @@ export const resolveTitle: ResolveFn<string> = async (route) => {
     const storyData = route.data!['ɵNgStoryblokStoryData'];
     const titleTemplate = inject(NG_STORYBLOK_TITLE_TEMPLATE, { optional: true });
 
-    const title = titleTemplate
-        ? titleTemplate.fn(titleTemplate.template, storyData.data.story)
-        : storyData.data.story.name;
+    if (!titleTemplate) {
+        return storyData.data.story.name;
+    }
 
-    return title;
+    const { template, render, env, cb } = titleTemplate;
+    return render(template, storyData.data.story, env, cb);
 };
