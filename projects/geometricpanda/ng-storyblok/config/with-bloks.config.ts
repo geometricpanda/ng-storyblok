@@ -1,10 +1,10 @@
+import FallbackBlokComponent from '@geometricpanda/ng-storyblok/components/fallback-blok';
 import {
     BlokLoader,
     BlokLoaders,
     NG_STORYBLOK_FALLBACK_LOADER,
     NG_STORYBLOK_LOADERS,
 } from '@geometricpanda/ng-storyblok/tokens';
-import FallbackBlokComponent from '../components/fallback-blok';
 import { NgStoryblokBloksFeature, NgStoryblokFeatureKind, createNgSbFeature } from './_features.config';
 
 const fallbackLoader = () => FallbackBlokComponent;
