@@ -4,9 +4,10 @@ import {
     NG_STORYBLOK_FALLBACK_LOADER,
     NG_STORYBLOK_LOADERS,
 } from '@geometricpanda/ng-storyblok/tokens';
+import FallbackBlokComponent from '../components/fallback-blok';
 import { NgStoryblokBloksFeature, NgStoryblokFeatureKind, createNgSbFeature } from './_features.config';
 
-const fallbackLoader = () => import('@geometricpanda/ng-storyblok/components/fallback-blok');
+const fallbackLoader = () => FallbackBlokComponent;
 
 export function withBloks(bloks: BlokLoaders, fallback: BlokLoader = fallbackLoader): NgStoryblokBloksFeature {
     return createNgSbFeature(NgStoryblokFeatureKind.BlokFeature, [
