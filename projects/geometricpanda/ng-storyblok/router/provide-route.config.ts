@@ -8,14 +8,11 @@ import { resolveTitle } from './resolve-title.guard';
 
 export type StoryblokRoute = Omit<Route, 'loadComponent' | 'loadChildren' | 'component'>;
 
-export const storyblokRoute = (route: StoryblokRoute): Route => ({
-    ...route,
+export const storyblokRoute = ({ canMatch = [], canActivate = [], resolve = {}, ...props }: StoryblokRoute): Route => ({
     component: StoryblokRootComponent,
     title: resolveTitle,
-    canMatch: [matchStoryblokRoute],
-    canActivate: [preloadComponentsGuard],
-    resolve: {
-        ...route.resolve,
-        story: resolveStory,
-    },
+    canMatch: [...canMatch, matchStoryblokRoute],
+    canActivate: [...canActivate, preloadComponentsGuard],
+    resolve: { ...resolve, story: resolveStory },
+    ...props,
 });
