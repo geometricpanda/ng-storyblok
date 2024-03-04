@@ -72,7 +72,7 @@ export const appConfig: ApplicationConfig = {
         }),
         provideNgStoryblok(
             withAccessToken('ng4mrSeUen31b5G1kAu8eQtt'),
-            withPreview(),
+            withPreview({ validateToken: true }),
             withBridge(),
             withCache(),
             withResolveLinks('story'),
