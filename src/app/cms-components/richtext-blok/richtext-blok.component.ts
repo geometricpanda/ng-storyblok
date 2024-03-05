@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 import { StoryblokBlok } from '@geometricpanda/ng-storyblok';
-import { RichtextComponent } from '@geometricpanda/ng-storyblok/components/richtext';
+import { RichTextRendererDirective } from '@geometricpanda/ng-storyblok/components/richtext';
 import { StoryblokBlokDirective } from '@geometricpanda/ng-storyblok/render';
 import { RichtextBlok } from './richtext-blok.interface';
 
@@ -9,7 +9,7 @@ import { RichtextBlok } from './richtext-blok.interface';
     templateUrl: './richtext-blok.component.html',
     styleUrl: './richtext-blok.component.css',
     standalone: true,
-    imports: [StoryblokBlokDirective, RichtextComponent],
+    imports: [StoryblokBlokDirective, RichTextRendererDirective],
     host: {
         '[class.rich-text]': 'true',
     },

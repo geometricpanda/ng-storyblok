@@ -15,5 +15,6 @@ export interface ISbLinkedDocument<T = ISbLinkURLObject> extends ISbLinked {
 
 export interface ISbLinkedUrl extends ISbLinked {
     linktype: 'url';
-    url: string;
+    href: string;
+    target?: string;
 }

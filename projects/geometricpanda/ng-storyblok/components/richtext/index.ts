@@ -1,1 +1,1 @@
-export * from './richtext.component';
+export * from './rich-text.directive';
