@@ -47,6 +47,7 @@ enum MarkType {
     CODE = 'code',
     HIGHLIGHT = 'highlight',
     TEXT_STYLE = 'textStyle',
+    UNDERLINE = 'underline',
 }
 
 @Directive({
@@ -171,6 +172,9 @@ export class RichTextRendererDirective {
         let wrappedElement = element;
         marks.forEach((mark) => {
             switch (mark.type) {
+                case MarkType.UNDERLINE:
+                    wrappedElement = this.wrapWithMark(wrappedElement, 'u');
+                    break;
                 case MarkType.BOLD:
                     wrappedElement = this.wrapWithMark(wrappedElement, 'strong');
                     break;
