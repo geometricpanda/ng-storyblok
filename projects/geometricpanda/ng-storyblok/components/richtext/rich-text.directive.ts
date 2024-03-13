@@ -21,6 +21,7 @@ export interface MarkNode {
 }
 
 enum NodeType {
+    HARD_BREAK = 'hard_break',
     PARAGRAPH = 'paragraph',
     HORIZONTAL_RULE = 'horizontal_rule',
     HEADING = 'heading',
@@ -115,6 +116,8 @@ export class RichTextRendererDirective {
                 return this.createHtmlElement('blockquote', node);
             case NodeType.EMOJI:
                 return this.createEmojiElement(node);
+            case NodeType.HARD_BREAK:
+                return this.renderer.createElement('br');
             default:
                 console.warn(new Error(`Unhandled node type: ${node.type}`));
                 return null;
