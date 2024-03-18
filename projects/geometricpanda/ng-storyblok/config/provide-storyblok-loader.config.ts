@@ -159,6 +159,10 @@ function createStoryblokUrl(config: ImageLoaderConfig, options: ProvideStoryblok
             }
         }
 
+        if (!filters.size) {
+            return url.toString();
+        }
+
         const filterString = Array.from(filters.entries())
             .map(([key, value]) => `${key}(${value})`)
             .join(':');
