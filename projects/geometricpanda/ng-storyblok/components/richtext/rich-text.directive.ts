@@ -1,5 +1,5 @@
 import { Directive, effect, ElementRef, inject, input, Renderer2 } from '@angular/core';
-import type { ISbLinkedDocument, ISbLinkedUrl } from '@geometricpanda/ng-storyblok';
+import { ISbLinkedDocument, ISbLinkedUrlRichText } from '@geometricpanda/ng-storyblok';
 import { NG_STORYBLOK_SLUG_REWRITE } from '@geometricpanda/ng-storyblok/tokens';
 import type { ISbRichtext } from 'storyblok-js-client';
 
@@ -217,7 +217,7 @@ export class RichTextRendererDirective {
         return wrappedElement;
     }
 
-    private createLink(element: HTMLElement, attrs: ISbLinkedUrl | ISbLinkedDocument): HTMLElement {
+    private createLink(element: HTMLElement, attrs: ISbLinkedUrlRichText | ISbLinkedDocument): HTMLElement {
         if (attrs['linktype'] === 'story') {
             if (attrs['story']) {
                 const slug = attrs['story'].full_slug;
@@ -229,7 +229,7 @@ export class RichTextRendererDirective {
         }
 
         return this.wrapWithMark(element, 'a', {
-            href: (<ISbLinkedUrl>attrs).href,
+            href: (<ISbLinkedUrlRichText>attrs).href,
             target: attrs.target,
         });
     }
