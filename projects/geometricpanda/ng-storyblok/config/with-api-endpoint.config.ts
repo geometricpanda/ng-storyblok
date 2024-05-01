@@ -1,4 +1,4 @@
-import { NG_STORYBLOK_API_ENDPOINT } from '../tokens/api-endpoint.token';
+import { NG_STORYBLOK_API_ENDPOINT } from '@geometricpanda/ng-storyblok/tokens';
 import { NgStoryblokApiEndpointFeature, NgStoryblokFeatureKind, createNgSbFeature } from './_features.config';
 
 /**
