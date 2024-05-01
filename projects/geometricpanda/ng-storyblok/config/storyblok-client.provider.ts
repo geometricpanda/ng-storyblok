@@ -2,6 +2,7 @@ import { FactoryProvider, inject } from '@angular/core';
 import {
     NG_STORYBLOK_ACCESS_TOKEN,
     NG_STORYBLOK_API_ENDPOINT,
+    NG_STORYBLOK_API_HEADERS,
     NG_STORYBLOK_API_REGION,
     NG_STORYBLOK_BRIDGE,
     NG_STORYBLOK_CACHE,
@@ -22,6 +23,7 @@ export const StoryblokClientProvider: FactoryProvider = {
         const OAUTH_TOKEN = inject(NG_STORYBLOK_OAUTH_TOKEN, { optional: true });
         const API_REGION = inject(NG_STORYBLOK_API_REGION, { optional: true });
         const API_ENDPOINT = inject(NG_STORYBLOK_API_ENDPOINT, { optional: true });
+        const API_HEADERS = inject(NG_STORYBLOK_API_HEADERS, { optional: true });
         const CACHE = inject(NG_STORYBLOK_CACHE, { optional: true });
         const BRIDGE = inject(NG_STORYBLOK_BRIDGE, { optional: true });
 
@@ -41,6 +43,7 @@ if this is intentional please provide ngStoryblok with
                 region: API_REGION ?? undefined,
                 endpoint: API_ENDPOINT ?? undefined,
                 cache: CACHE ?? undefined,
+                headers: API_HEADERS ?? undefined,
             },
         });
 
