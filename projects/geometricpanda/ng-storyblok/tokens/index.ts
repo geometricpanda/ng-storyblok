@@ -1,5 +1,6 @@
 export * from './access-token.token';
 export * from './api-endpoint.token';
+export * from './api-fetcher.token';
 export * from './api-headers.token';
 export * from './api-region.token';
 export * from './bridge.token';

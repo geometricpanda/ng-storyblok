@@ -9,6 +9,7 @@ export const enum NgStoryblokFeatureKind {
     ApiRegionFeature,
     ApiEndpointFeature,
     ApiHeadersFeature,
+    ApiFetcherFeature,
     BlokFeature,
     CacheFeature,
     DefaultPathFeature,
@@ -27,6 +28,7 @@ export type NgStoryblokApiPluginFeature = NgStoryblokFeature<NgStoryblokFeatureK
 export type NgStoryblokApiRegionFeature = NgStoryblokFeature<NgStoryblokFeatureKind.ApiRegionFeature>;
 export type NgStoryblokApiEndpointFeature = NgStoryblokFeature<NgStoryblokFeatureKind.ApiEndpointFeature>;
 export type NgStoryblokApiHeadersFeature = NgStoryblokFeature<NgStoryblokFeatureKind.ApiHeadersFeature>;
+export type NgStoryblokApiFetcherFeature = NgStoryblokFeature<NgStoryblokFeatureKind.ApiFetcherFeature>;
 export type NgStoryblokBloksFeature = NgStoryblokFeature<NgStoryblokFeatureKind.BlokFeature>;
 export type NgStoryblokCacheFeature = NgStoryblokFeature<NgStoryblokFeatureKind.CacheFeature>;
 export type NgStoryblokDefaultPathFeature = NgStoryblokFeature<NgStoryblokFeatureKind.DefaultPathFeature>;
@@ -70,4 +72,5 @@ export type NgStoryblokFeatures =
     | NgStoryblokBridgeFeature
     | NgStoryblokTitleTemplateFeature
     | NgStoryblokSlugRewriteFeature
-    | NgStoryblokApiHeadersFeature;
+    | NgStoryblokApiHeadersFeature
+    | NgStoryblokApiFetcherFeature;
