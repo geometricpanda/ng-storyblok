@@ -8,6 +8,7 @@ import {
     NG_STORYBLOK_OAUTH_TOKEN,
 } from '@geometricpanda/ng-storyblok/tokens';
 import { apiPlugin, storyblokInit } from '@storyblok/js';
+import { NG_STORYBLOK_API_ENDPOINT } from '../tokens/api-endpoint.token';
 
 /**
  * Provides the Storyblok API client.
@@ -20,6 +21,7 @@ export const StoryblokClientProvider: FactoryProvider = {
         const ACCESS_TOKEN = inject(NG_STORYBLOK_ACCESS_TOKEN, { optional: true });
         const OAUTH_TOKEN = inject(NG_STORYBLOK_OAUTH_TOKEN, { optional: true });
         const API_REGION = inject(NG_STORYBLOK_API_REGION, { optional: true });
+        const API_ENDPOINT = inject(NG_STORYBLOK_API_ENDPOINT, { optional: true })
         const CACHE = inject(NG_STORYBLOK_CACHE, { optional: true });
         const BRIDGE = inject(NG_STORYBLOK_BRIDGE, { optional: true });
 
@@ -37,6 +39,7 @@ if this is intentional please provide ngStoryblok with
             apiOptions: {
                 oauthToken: OAUTH_TOKEN ?? undefined,
                 region: API_REGION ?? undefined,
+                endpoint: API_ENDPOINT ?? undefined,
                 cache: CACHE ?? undefined,
             },
         });
