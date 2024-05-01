@@ -4,14 +4,14 @@ import { NgStoryblokApiFetcherFeature, NgStoryblokFeatureKind, createNgSbFeature
 /**
  * Provides the Storyblok API region.
  *
- * @param region The Storyblok API region.
+ * @param fetcher The Storyblok API fetcher
  * @returns The provider for the Storyblok API region.
  */
-export function withApiFetcher(region: string): NgStoryblokApiFetcherFeature {
+export function withApiFetcher(fetcher: typeof fetch): NgStoryblokApiFetcherFeature {
     return createNgSbFeature(NgStoryblokFeatureKind.ApiFetcherFeature, [
         {
             provide: NG_STORYBLOK_API_FETCHER,
-            useValue: region,
+            useValue: fetcher,
         },
     ]);
 }
