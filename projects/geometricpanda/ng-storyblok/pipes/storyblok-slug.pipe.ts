@@ -9,8 +9,8 @@ import { ISbStoryData } from 'storyblok-js-client/src/interfaces';
 export class StoryblokSlugPipe implements PipeTransform {
     rewrite = inject(NG_STORYBLOK_SLUG_REWRITE, { optional: true });
 
-    transform({ slug }: ISbStoryData): Array<string> {
-        const finalSlug = this.rewrite?.toUrl(slug) || slug;
+    transform({ full_slug }: ISbStoryData): Array<string> {
+        const finalSlug = this.rewrite?.toUrl(full_slug) || full_slug;
         return finalSlug.split('/');
     }
 }
