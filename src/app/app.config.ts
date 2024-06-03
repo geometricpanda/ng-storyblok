@@ -81,6 +81,7 @@ export const appConfig: ApplicationConfig = {
             withSlugRewrite(
                 (slug) => slug || 'home',
                 (slug) => (slug === 'home' ? '/' : slug),
+                (slug) => (slug === 'home' ? '/' : slug),
             ),
             withBloks({
                 [BLOK.PAGE]: () => import('./cms-components/page-blok'),
