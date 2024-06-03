@@ -57,7 +57,7 @@ enum MarkType {
 export class RichTextRendererDirective {
     el = inject(ElementRef);
     renderer = inject(Renderer2);
-    slugToUrl = inject(NG_STORYBLOK_SLUG_REWRITE, { optional: true })?.toUrl;
+    slugToUrl = inject(NG_STORYBLOK_SLUG_REWRITE, { optional: true })?.toRichtextUrl;
 
     storyblokRichText = input.required<ISbRichtext>();
 
