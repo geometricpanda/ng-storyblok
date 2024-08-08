@@ -221,8 +221,11 @@ export class RichTextRendererDirective {
         if (attrs['linktype'] === 'story') {
             if (attrs['story']) {
                 const slug = attrs['story'].full_slug;
+                const anchor = attrs.anchor;
                 const href = this.slugToUrl ? this.slugToUrl(slug) : slug;
-                return this.wrapWithMark(element, 'a', { href, 'data-internal-link': '' });
+                const target = [href, anchor].filter(Boolean).join('#');
+
+                return this.wrapWithMark(element, 'a', { href: target, 'data-internal-link': '' });
             }
 
             console.error(new Error(enableResolveLinksErr));
