@@ -30,9 +30,10 @@ const validateStoryblokPreview = async ({
 
 export interface WithPreviewOptions {
     validateToken?: boolean;
+    from_release?: string;
 }
 
-export function withPreview({ validateToken = true }: WithPreviewOptions): NgStoryblokPreviewFeature {
+export function withPreview({ validateToken = true, from_release }: WithPreviewOptions): NgStoryblokPreviewFeature {
     return createNgSbFeature(NgStoryblokFeatureKind.PreviewFeature, [
         {
             provide: NG_STORYBLOK_PREVIEW,
@@ -48,7 +49,7 @@ export function withPreview({ validateToken = true }: WithPreviewOptions): NgSto
 
                     const { queryParams } = navigation.extractedUrl;
 
-                    const release = queryParams['_storyblok_release'];
+                    const release = from_release ?? queryParams['_storyblok_release'];
                     const spaceId = queryParams['_storyblok_tk[space_id]'];
                     const timestamp = queryParams['_storyblok_tk[timestamp]'];
                     const token = queryParams['_storyblok_tk[token]'];
