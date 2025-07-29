@@ -1,5 +1,5 @@
 import { InjectionToken } from '@angular/core';
-import type { StoryblokClient } from '@storyblok/js/dist/types/types';
+import type { StoryblokClient } from '@storyblok/js';
 
 /**
  * Injection token for the Storyblok client.
