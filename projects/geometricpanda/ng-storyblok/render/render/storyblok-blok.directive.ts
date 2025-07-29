@@ -5,8 +5,7 @@ import {
     NG_STORYBLOK_FALLBACK_LOADER,
     NG_STORYBLOK_LOADERS,
 } from '@geometricpanda/ng-storyblok/tokens';
-import { storyblokEditable } from '@storyblok/js';
-import { SbBlokData } from '@storyblok/js/dist/types/types';
+import { SbBlokData, storyblokEditable } from '@storyblok/js';
 import { ISbComponentType } from 'storyblok-js-client/src/interfaces';
 import { loadComponentChunk } from '../render';
 
